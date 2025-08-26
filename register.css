@@ -17,10 +17,14 @@ body {
 }
 
 .login-container {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    overflow: hidden;
+  width: 100vw;          /* full screen width */
+  height: 100vh;         /* full screen height */
+  display: flex;
+  flex-direction: row;   /* always side by side */
+  flex-wrap: nowrap;     /* never wrap */
+  overflow: hidden;      /* no scrollbars */
+  margin: 0;
+  padding: 0;
 }
 
 /* ===================== LEFT SECTION (REGISTER) ===================== */
@@ -109,16 +113,17 @@ body {
 
 /* ===================== RIGHT SECTION (LOGIN) ===================== */
 .login-right {
-    flex: 1;
-    background: #fff8e1;
-    color: black;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;  
-    padding: 50px;
-    position: relative;
-    overflow: hidden;
+  flex: 0 0 50vw;        /* lock to 50% of viewport width */
+  height: 100vh;         /* full height */
+  background: #fff8e1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
 }
 
 .animation-container {
@@ -240,56 +245,62 @@ body {
 
 /* ===================== BACKGROUND CIRCLES ===================== */
 #container {
-    background: linear-gradient(135deg, #00efdb 0%,#00e5a8 100%);
-    position: relative;
-    height: 100%;
-    width: 50%;
-    margin: 0 auto;
-    padding: 0;
+  flex: 0 0 50vw;
+  height: 100vh; 
+  background: linear-gradient(135deg, #00efdb 0%,#00e5a8 100%);
+  position: relative;
+  margin: 0;             
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #container-inside {
-    position: relative;
-    margin: 0 auto;
-    width: 50%;
-    overflow: visible;
+    position: absolute;   /* relative to #container */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    max-width: 90vw;
+    z-index: 0;  /* always stay behind */
 }
 
+/* Common circle style */
 #circle-small, #circle-medium, #circle-large, #circle-xlarge, #circle-xxlarge {
     border-radius: 50%;
     background: #fff;
     position: absolute;
+    top: 50%;      /* center vertically */
+    left: 50%;     /* center horizontally */
+    transform: translate(-50%, -50%); /* make sure center aligns */
 }
 
+/* Different sizes + opacity + animation */
 #circle-small {
-    width: 200px; height: 200px; top: 200px; left: 80px; opacity: 0.4;
-    animation: circle-small-scale 3s ease-in-out infinite alternate;
+    width: 100px; height: 100px; opacity: 0.4;
+    animation: circle-scale 3s ease-in-out infinite alternate;
 }
 #circle-medium {
-    width: 400px; height: 400px; top: 100px; left: -20px; opacity: 0.3;
-    animation: circle-small-scale 3s ease-in-out infinite alternate 0.3s;
+    width: 300px; height: 300px; opacity: 0.3;
+    animation: circle-scale 3s ease-in-out infinite alternate 0.3s;
 }
 #circle-large {
-    width: 600px; height: 600px; top: 10px; left: -120px; opacity: 0.2;
-    animation: circle-small-scale 3s ease-in-out infinite alternate 0.6s;
-}
-#circle-xlarge {
-    width: 1200px; height: 1200px; top: -250px; left: -600px; opacity: 0.1;
-    animation: circle-small-scale 3s ease-in-out infinite alternate 0.9s;
-}
-#circle-xxlarge {
-    width: 1500px; height: 1500px; top: -400px; left: -750px; opacity: 0.05;
-    animation: circle-small-scale 3s ease-in-out infinite alternate 1.2s;
+    width: 500px; height: 500px; opacity: 0.2;
+    animation: circle-scale 3s ease-in-out infinite alternate 0.6s;
 }
 
-@keyframes circle-small-scale {
-    0% { transform: scale(1.0); }
-    100% { transform: scale(1.1); }
+/* Scale animation */
+@keyframes circle-scale {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    100% { transform: translate(-50%, -50%) scale(1.1); }
 }
 
 /* Keep circles behind */
 #container, #container-inside, 
-#circle-small, #circle-medium, #circle-large, #circle-xlarge, #circle-xxlarge {
+#circle-small, #circle-medium, #circle-large {
     z-index: 0;
 }
 
@@ -322,5 +333,4 @@ body {
 .login-left {
     position: relative; /* needed so z-index applies */
     z-index: 10;        /* higher than circles */
-
 }
