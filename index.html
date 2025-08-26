@@ -10,8 +10,60 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 />
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+ <style>
+    /* Loader container */
+    #loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      overflow: hidden;
+    }
+
+    /* Background video */
+    #loader video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    /* Hide loader after animation */
+    body.loaded #loader {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.8s ease, visibility 0.8s ease;
+    }
+
+    /* Website content */
+    .content {
+      display: none;
+      text-align: center;
+      padding: 100px;
+      font-size: 2em;
+    }
+
+    body.loaded .content {
+      display: block;
+    }
+  </style>
+
 </head>
 <body>
+<div id="loader">
+    <video autoplay muted loop>
+      <source src="Images1/body.mp4" type="video/mp4">
+    </video>
+  </div>
   <header class="navbar">
   <div class="logo">
     <a href="#" class="logo-text">Stackly</a>
@@ -24,7 +76,7 @@
         <li><a href="service.html">Services</a></li>
         <li><a href="faq.html">FAQ</a></li>
         <!-- <li><a href="404_1.html">Dashboard</a></li> -->
-        <li><a href="404_1.html">Blog</a></li>
+        <li><a href="blog.html">Blog</a></li>
         <li><a href="404_1.html">Contact</a></li>
         <li><button class="btn-appointment" onclick="location.href='login.html'">Make Appointment</button></li>
       </ul>
@@ -509,7 +561,6 @@
     <p>Copyright © Stackly 2025. All rights reserved.</p>
   </div>
 </footer>
-
 <script>
   document.querySelector(".menu-toggle").addEventListener("click", function() {
     document.querySelector(".nav-links").classList.toggle("active");
@@ -526,6 +577,13 @@
   });
 </script>
 
+  <script>
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        document.body.classList.add("loaded");
+      }, 2200);
+    });
+  </script>
 
   <script src="script.js"></script>
 </body>
