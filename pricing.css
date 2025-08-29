@@ -268,6 +268,7 @@ body.dark-mode .skills-section::before
 }
 
 body.dark-mode .service-card p,
+body.dark-mode .test-main-heading,
 body.dark-mode .finance-service-card p {
   color: #bbb;
 }
@@ -277,7 +278,8 @@ body.dark-mode .service-card h3 {
 }
 
 
-body.dark-mode .footer {
+body.dark-mode .footer,
+body.dark-mode .test-pricing-section {
   background-color: #1a1a1a;
   color: #ddd;
 }
@@ -313,7 +315,7 @@ body.dark-mode .footer-bottom {
 .hero {
   position: relative;
   background: linear-gradient(rgba(0, 5, 5, 0.5), rgba(2, 19, 19, 0.5)),
-              url('Images/Features.jpg') no-repeat center center;
+              url('Images/pricing.jpg') no-repeat center center;
   background-size: cover;       /* fills entire section */
   background-attachment: fixed; /* parallax effect */
   height: 500px;
@@ -373,194 +375,170 @@ body.dark-mode .footer-bottom {
   margin-top: 10px;
 }
 
-/* Section Headings */
-.sub-heading {
-  text-align: center;
-  color: #e63946;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
 
-.main-heading {
-  text-align: center;
-  font-size: 28px;
-  margin-bottom: 40px;
-  font-weight: 700;
-}
-
-/* Features */
-.features {
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.sub-heading {
-  color: #e63946;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-
-.main-heading {
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 40px;
-}
-
-.feature-boxes {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  max-width: 1100px;
+.test-pricing-section {
   margin: auto;
+  background-color: #fdf7ea;
+  text-align: center;
+  padding-top: 50px;
 }
 
-.box {
-  border: 1px solid #eee;
-  padding: 25px;
-  border-radius: 10px;
-  background: #fff;
-  border-color:#e63946 ;
-  transition: 0.3s;
-}
-
-.box:hover {
-  background: #f9f9f9;
-  transform: translateY(-5px);
-  box-shadow: 0 4px 12px rgba(255, 0, 0, 0.5); /* red shadow */
-}
-
-.box .icon {
-  font-size: 40px;
-  color: #e63946;
-  margin-bottom: 15px;
-}
-
-.box h4 {
-  font-size: 18px;
-  margin-bottom: 10px;
-  font-weight: 600;
-}
-
-.box p {
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 15px;
-}
-
-.box a {
-  display: inline-block;
-  color: #e63946;
-  font-size: 18px;
-  text-decoration: none;
-}
-
-.section-subtitle {
-  color: #ff4e2b;
-  font-weight: 600;
-  margin-bottom: 10px;
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-
-.line-left,
-.line-right {
-  content: "";
-  width: 40px;
-  height: 2px;
-  background-color: #ff4e2b;
-  display: inline-block;
-}
-
-.icon img {
-  width: 80px;   /* adjust size */
-  height: 80px;
-  object-fit: contain;
-}
-
-
-
-.service-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-  max-width: 1100px;
-  margin: auto;
-}
-
-.service-card {
-  position: relative;
-  overflow: hidden;
-  border-radius: 12px;
-}
-
-.service-card img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  transition: 0.4s;
-}
-
-.service-card:hover img {
-  transform: scale(1.1);
-}
-
-.card-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: #ff4e2b;
-  color: #fff;
-  padding: 15px;
-  text-align: left;
-}
-
-
-.section-header1 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-  background: #fff;          /* white background */
-  padding: 20px;
-}
-
-.section-header1 .title {
-  font-size: 32px;
-  font-weight: 700;
-  color: #ff4e2b;
-  text-transform: uppercase;
-  animation: fadeSlide 2s infinite alternate;
-}
-
-.section-header1 .arrow1 {
-  font-size: 28px;
+.test-sub-heading {
+  color: #ff4500;
   font-weight: bold;
-  color: #ff4e2b;
-  animation: bounceArrow 1.5s infinite;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
 }
 
-/* Title Animation */
-@keyframes fadeSlide {
-  from {
-    opacity: 0.6;
-    transform: translateY(-5px);
+.test-main-heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: black;
+  margin-bottom: 10px;
+}
+
+.test-description {
+  max-width: 700px;
+  margin: 0 auto 50px;
+  color: #555;
+  font-size: 1rem;
+}
+
+.test-pricing-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.test-card1 {
+  background-color: #fdf7ea;
+  width: 300px;
+  border-radius: 0 0 40px 0;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 100px;
+}
+
+.test-card-header h3 {
+  color: black;
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+}
+
+.test-card-header p {
+  font-size: 0.9rem;
+  color: black;
+  margin-bottom: 20px;
+}
+
+.test-card-price {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.test-card-price1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.test-card-price small {
+  font-size: 1rem;
+  color: black;
+}
+
+.test-card-features {
+  list-style: none;
+  text-align: left;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.test-card-features li {
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.test-btn {
+  background-color: #ff4500;
+  color: #fff;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 0 0 20px 0;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.test-btn:hover {
+  background-color: #c04f26;
+}
+
+.test-featured {
+  background-color: #ff4500;
+  color: #fff;
+}
+
+.test-featured .test-card-header h3,
+.test-featured .test-card-header p,
+.test-featured .test-card-price,
+.test-featured .test-card-features li {
+  color: #fff;
+}
+
+.test-featured .test-btn.test-dark {
+  background-color: #000;
+  color: #fff;
+}
+
+.test-featured .test-btn.test-dark:hover {
+  background-color: #222;
+}
+
+.test-green1 {
+  background-color: #ff4500;
+  margin-top: -30px;
+  margin-right: -20px;
+  margin-left: -20px;
+}
+
+.test-black {
+  background-color: black;
+  margin-top: -30px;
+  margin-right: -20px;
+  margin-left: -20px;
+}
+
+@keyframes zoomPulse {
+  0%, 100% {
+    transform: scale(1);
   }
-  to {
-    opacity: 1;
-    transform: translateY(5px);
+  50% {
+    transform: scale(1.05);
   }
 }
 
-/* Arrow Animation */
-@keyframes bounceArrow {
-  0%, 100% { transform: translateX(0); }
-  50% { transform: translateX(8px); }
+.test-card1.test-featured {
+  animation: zoomPulse 3s ease-in-out infinite;
+  transition: transform 0.3s ease-in-out;
 }
 
+.test-card1.test-featured:hover {
+  animation: zoomPulse 3s ease-in-out infinite;
+}
+
+.zoom-effect {
+  animation: zoomPulse 3s ease-in-out infinite;
+}
 
 .footer {
   background: #0f1b23;

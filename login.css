@@ -324,11 +324,81 @@ body {
 }
 
 
+/* 📱 Mobile adjustments */
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;   /* stack vertically */
+    height: auto;             /* let height grow naturally */
+    overflow-y: auto;         /* allow scroll if needed */
+  }
 
+  /* Both sections full width */
+  .login-left,
+  .login-right,
+  #container {
+    flex: none;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+  }
 
+  .login-left {
+    margin-top: 400px;
+  }
 
+  /* Register section text adjustments */
+  .login-left h2 {
+    font-size: 1.5em;
+    margin-top: -20px;
+  }
+  .login-left p {
+    font-size: 0.9em;
+  }
+  .login-left .register-logo img {
+    width: 140px;
+    margin-bottom: 20px;
+  }
 
+  /* Login form adjustments */
+  .input-box input {
+    width: 90%;
+    max-width: 260px;
+    height: 45px;
+    font-size: 0.9em;
+  }
 
+  .btn {
+    width: 90%;
+    max-width: 260px;
+    height: 45px;
+    font-size: 0.9em;
+  }
 
+  .btn-register {
+    padding: 12px 28px;
+    font-size: 0.6em;
+  }
 
+  .forgot-pass a {
+    font-size: 0.8em;
+  }
 
+  /* Animation shrink / hide */
+  .animation-container {
+    display: none; /* cleanest on mobile */
+    /* If you prefer keeping it smaller instead of hiding: 
+    width: 180px;
+    height: 180px;
+    top: 40%;
+    */
+  }
+
+  /* Circles smaller */
+  #container-inside {
+    width: 90%;
+    max-width: 280px;
+  }
+  #circle-small { width: 60px; height: 60px; }
+  #circle-medium { width: 160px; height: 160px; }
+  #circle-large { width: 240px; height: 240px; }
+}

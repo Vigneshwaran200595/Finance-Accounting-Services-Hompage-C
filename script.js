@@ -115,20 +115,37 @@ const images = document.querySelectorAll(".arc-img");
   setInterval(rotateArcImages, 3000);
 
 
-  document.querySelector(".menu-toggle").addEventListener("click", function() {
-    document.querySelector(".nav-links").classList.toggle("active");
-  });
+document.addEventListener("DOMContentLoaded", function() {
+  const content = document.getElementById("content");
+  content.style.display = "block"; // make sure content is visible
 
-  const container = document.querySelector('.login-container');
-  const swapBtn = document.getElementById('swapBtn');
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navLinks = document.querySelector(".nav-links");
 
-  swapBtn.addEventListener('click', () => {
-    container.classList.toggle('swap');
+  menuToggle.addEventListener("click", function() {
+    navLinks.classList.toggle("active");
   });
+});
+
 
 
   document.getElementById("contactForm").addEventListener("submit", function(e) {
   e.preventDefault();
   alert("Your message has been sent successfully!");
   this.reset();
+});
+
+
+window.addEventListener("load", () => {
+  const loader = document.getElementById("loader");
+  const content = document.getElementById("content");
+
+  setTimeout(() => {
+    loader.style.opacity = "0";
+    loader.style.transition = "opacity 0.5s ease";
+    setTimeout(() => {
+      loader.style.display = "none";
+      content.style.display = "block";
+    }, 500);
+  }, 1000); // Loader duration
 });

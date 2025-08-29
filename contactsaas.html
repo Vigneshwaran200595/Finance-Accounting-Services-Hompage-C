@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Account and Financial Service</title>
-  <link rel="stylesheet" href="why.css"/>
+  <link rel="stylesheet" href="contactsaas.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 </head>
@@ -50,74 +50,82 @@
     <div class="overlay layer4"></div>
 
     <div class="hero-content">
-      <h1>Why Choose Us</h1>
-      <p>Home > Why Choose Us</p>
+      <h1>Contact Us</h1>
+      <p>Home > Contact</p>
     </div>
   </section>
 
-  <section class="why-choose-us">
-    <div class="container">
-      <div class="content-wrapper">
-        
-        <!-- Left Side Images -->
-        <div class="image-box">
-          <img src="Images/whychoose1.jpg" alt="Financial Team" class="main-img">
-          <img src="Images/whychoose2.jpg" alt="Accounting Team" class="circle-img">
-        </div>
+<section class="contact-section">
+  <div class="contact-top">
+    <!-- Left Side (Image + Bubbles) -->
+    <div class="contact-image">
+      <img src="Images/contact-person.png" alt="Contact Person">
 
-        <!-- Right Side Text -->
-        <div class="text-box">
-          <span class="sub-title">Why Choose Us?</span>
-          <h2>Trusted Financial & Accounting Services</h2>
-          <p>
-            We provide expert financial and accounting solutions that help 
-            businesses grow with confidence. Our professional team ensures 
-            accuracy, compliance, and strategic financial planning tailored 
-            to your needs.
-          </p>
-
-          <div class="services-list">
-            <ul>
-              <li>Financial Planning & Advisory</li>
-              <li>Corporate Finance & Investment</li>
-              <li>Tax Preparation & Filing</li>
-            </ul>
-            <ul>
-              <li>Bookkeeping & Payroll Management</li>
-              <li>Audit & Compliance Services</li>
-              <li>Business Valuation & Reporting</li>
-            </ul>
-          </div>
-
-                 <button class="circle-btn red" onclick="location.href='404.html'"><span class="dot"></span>Join With Us</button>
-        </div>
+      <!-- Bubble Container -->
+      <div class="bubbles">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
     </div>
-  </section>
 
-
- <section class="cta-section">
-  <div class="cta-content">
-    <span class="cta-subtitle">Get A Quote</span>
-    <h2>Grow Your Business With Our Financial & Accounting Services</h2>
-    <button class="circle-btn1 red" onclick="location.href='404.html'"><span class="dot"></span>Get Started Now</button>
+    <!-- Right Side (Contact Info) -->
+    <div class="contact-info">
+      <h4 class="section-subtitle" data-aos="fade-up" data-aos-delay="300">— Get In Touch</h4>
+      <h2 class="section-title" data-aos="fade-up" data-aos-delay="400">Need Any Help For <br> Financial & Account Services</h2>
+      <p data-aos="fade-up" data-aos-delay="500">
+        Our team is ready to support you with expert financial and accounting services.
+        Let us help you manage, plan, and grow your business with confidence.
+      </p>
+      <ul class="info-list" data-aos="fade-up" data-aos-delay="600">
+        <li><i class="fas fa-phone-alt"></i> 123456789</li>
+        <li><i class="fas fa-envelope"></i> support@domain.com</li>
+        <li><i class="fas fa-map-marker-alt"></i> State, Country</li>
+      </ul>
+    </div>
   </div>
-</section>
 
-<section class="logo-slider">
-  <div class="logo-track">
-    <div class="logo-item"><img src="Images/logo1.png" alt="Globe"></div>
-    <div class="logo-item"><img src="Images/logo2.png" alt="Mountain"></div>
-    <div class="logo-item"><img src="Images/logo3.png" alt="Paper"></div>
-    <div class="logo-item"><img src="Images/logo4.png" alt="Summit"></div>
-    <div class="logo-item"><img src="Images/logo5.png" alt="Circle"></div>
+<div class="contact-form"data-aos="fade-up" data-aos-delay="600">
+  <h3>Don’t Hesitate To Contact Us</h3>
+  <form>
+    <div class="form-row">
+      <div class="input-box">
+        <input type="text" placeholder="Your Full Name" required>
+        <i class="fa fa-user"></i>
+      </div>
+      <div class="input-box">
+        <input type="email" placeholder="Your Email Address" required>
+        <i class="fa fa-envelope"></i>
+      </div>
+      <div class="input-box">
+        <input type="tel" placeholder="Your Phone" required>
+        <i class="fa fa-phone"></i>
+      </div>
+    </div>
 
-   <div class="logo-item"><img src="Images/logo1.png" alt="Globe"></div>
-    <div class="logo-item"><img src="Images/logo2.png" alt="Mountain"></div>
-    <div class="logo-item"><img src="Images/logo3.png" alt="Paper"></div>
-    <div class="logo-item"><img src="Images/logo4.png" alt="Summit"></div>
-    <div class="logo-item"><img src="Images/logo5.png" alt="Circle"></div>
+    <div class="input-box textarea-box">
+      <textarea placeholder="Write Message" rows="4" required></textarea>
+      <i class="fa fa-pencil-alt"></i>
+    </div>
+
+    <button class="circle-btn red" onclick="location.href='404.html'"><span class="dot"></span>Send Message</button>
+  </form>
+</div>
+
   </div>
+
+  <!-- Map -->
+  <div class="map-container">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.159513082276!2d78.1717902763242!3d11.682956580543614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3babefef7fd970bb%3A0xe11aef1a71994f9!2sStackly!5e0!3m2!1sen!2sin!4v1703179999999!5m2!1sen!2sin"
+    width="100%"
+    height="350"
+    style="border:0;"
+    allowfullscreen=""
+    loading="lazy"></iframe>
+</div>
 </section>
 
 <footer class="footer">
