@@ -629,39 +629,35 @@ body {
 
 window.addEventListener("load", () => {
   const img = new Image();
-  img.src = 'Images1/Background2.jpg'; // preload background image
+  img.src = 'Images1/Background2.jpg';
+  const loader = document.getElementById("loader");
+  const content = document.getElementById("content");
+
+  const hideLoader = () => {
+    if (!loader.classList.contains("done")) {
+      loader.classList.add("done");
+      loader.style.opacity = 0;
+      setTimeout(() => {
+        loader.style.display = "none";
+        content.style.display = "block";
+      }, 1000);
+    }
+  };
+
   img.onload = () => {
     const letters = document.querySelectorAll(".loader-text span");
-    const lastLetter = letters[letters.length - 1];
-    const loader = document.getElementById("loader");
-    const content = document.getElementById("content");
-
-    const hideLoader = () => {
-      if (!loader.classList.contains("done")) {
-        loader.classList.add("done"); // prevent multiple runs
-        loader.style.opacity = 0;
-        setTimeout(() => {
-          loader.style.display = "none";
-          content.style.display = "block";
-        }, 1000);
-      }
-    };
-
-    // Normal flow: wait for last animation
-    lastLetter.addEventListener("animationend", hideLoader);
-
-    // Fallback: force hide after 5s
+    const last = letters[letters.length - 1];
+    last.addEventListener("animationend", hideLoader);
+    // Fallback: hide after 5 seconds regardless
     setTimeout(hideLoader, 5000);
   };
 
-  // Extra fallback: if image fails to load, still hide after 5s
   img.onerror = () => {
-    setTimeout(() => {
-      document.getElementById("loader").style.display = "none";
-      document.getElementById("content").style.display = "block";
-    }, 5000);
+    // If image fails to load, hide loader after 5s
+    setTimeout(hideLoader, 5000);
   };
 });
+
 
 
 </script>
