@@ -314,10 +314,8 @@ body.dark-mode .footer-bottom {
   position: relative;
   background: linear-gradient(rgba(0, 5, 5, 0.5), rgba(2, 19, 19, 0.5)),
               url('Images/contact.jpg') no-repeat center center;
-  background-size: contain;   /* Show full image */
-  background-attachment: fixed; /* Keeps image fixed on scroll */
-  background-repeat: no-repeat;
-  background-position: center;
+  background-size: cover;       /* fills entire section */
+  background-attachment: fixed; /* parallax effect */
   height: 500px;
   display: flex;
   justify-content: center;
