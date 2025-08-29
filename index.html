@@ -22,51 +22,48 @@ body {
 
 /* Loader Fullscreen */
 #loader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-    background: linear-gradient(rgba(0, 80, 90, 0.8), rgba(0, 50, 50, 0.9)),
-              url('Images1/background2.jpg') no-repeat center center fixed;
-  background-size: cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-}
-
-/* Loader text */
-.loader-text {
-  font-size: 50px;
-  font-weight: bold;
-  font-family: Arial, sans-serif;
-  color: #00ffe0; /* Green */
-  display: flex;
-  gap: 5px;
-}
-
-/* Animation for each letter */
-.loader-text span {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.6s forwards;
-}
-
-.loader-text span:nth-child(1) { animation-delay: 0s; }
-.loader-text span:nth-child(2) { animation-delay: 0.2s; }
-.loader-text span:nth-child(3) { animation-delay: 0.4s; }
-.loader-text span:nth-child(4) { animation-delay: 0.6s; }
-.loader-text span:nth-child(5) { animation-delay: 0.8s; }
-.loader-text span:nth-child(6) { animation-delay: 1s; }
-.loader-text span:nth-child(7) { animation-delay: 1.2s; }
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    color: #00ffe0;
+    font-size: 3rem;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 5px;
+    animation: fadeIn 0.5s ease-in-out;
   }
-}
+
+  /* Letter animation */
+  #loader-text {
+    display: inline-block;
+  }
+  #loader-text span {
+    opacity: 0;
+    animation: fadeInUp 0.8s forwards;
+  }
+  #loader-text span:nth-child(1) { animation-delay: 0s; }
+  #loader-text span:nth-child(2) { animation-delay: 0.1s; }
+  #loader-text span:nth-child(3) { animation-delay: 0.2s; }
+  #loader-text span:nth-child(4) { animation-delay: 0.3s; }
+  #loader-text span:nth-child(5) { animation-delay: 0.4s; }
+  #loader-text span:nth-child(6) { animation-delay: 0.5s; }
+  #loader-text span:nth-child(7) { animation-delay: 0.6s; }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
 /* Hide main content initially */
 #content {
   display: none;
@@ -77,16 +74,8 @@ body {
 </head>
 <body>
 
-  <div id="loader">
-  <div class="loader-text">
-    <span>S</span>
-    <span>t</span>
-    <span>a</span>
-    <span>c</span>
-    <span>k</span>
-    <span>l</span>
-    <span>y</span>
-  </div>
+<div id="loader">
+  <h1 id="loader-text">Stackly</h1>
 </div>
 
  <div id="content">
@@ -625,19 +614,22 @@ body {
   });
 });
 
-window.addEventListener("load", () => {
-  const loader = document.getElementById("loader");
-  const content = document.getElementById("content");
+const text = document.getElementById("loader-text");
+  const word = text.innerText;
+  text.innerHTML = "";
+  [...word].forEach((letter) => {
+    let span = document.createElement("span");
+    span.innerText = letter;
+    text.appendChild(span);
+  });
 
-  setTimeout(() => {
-    loader.style.opacity = "0";
-    loader.style.transition = "opacity 0.5s ease";
+  // Show content after short delay
+  document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
-      loader.style.display = "none";
-      content.style.display = "block";
-    }, 500);
-  }, 1800); // Loader duration
-});
+      document.getElementById("loader").style.display = "none";
+      document.getElementById("content").style.display = "block";
+    }, 1500); // 1.5s loader
+  });
 
 </script>
 
