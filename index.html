@@ -27,39 +27,39 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
+    background: linear-gradient(rgba(0, 80, 90, 0.8), rgba(0, 50, 50, 0.9)),
+              url('Images1/background2.jpg') no-repeat center center fixed;
+  background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 9999;
-  flex-direction: row;
-  overflow: hidden;
-  color: #fff;
-  transition: opacity 1s ease;
-  /* Background image instead of video */
-  background: linear-gradient(rgba(0, 80, 90, 0.8), rgba(0, 50, 50, 0.9)),
-              url('Images1/Background2.jpg') no-repeat center center;
-  background-size: cover;
 }
 
-/* Overlay (optional if you want extra dark layer) */
-#loader .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
-
-/* Loader Text Animation */
-.loader-text span {
-  font-size: 3rem;
+/* Loader text */
+.loader-text {
+  font-size: 50px;
   font-weight: bold;
-  color: #00ffe0;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInUp 0.5s forwards;
+  font-family: Arial, sans-serif;
+  color: #00ffe0; /* Green */
+  display: flex;
+  gap: 5px;
 }
+
+/* Animation for each letter */
+.loader-text span {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s forwards;
+}
+
+.loader-text span:nth-child(1) { animation-delay: 0s; }
+.loader-text span:nth-child(2) { animation-delay: 0.2s; }
+.loader-text span:nth-child(3) { animation-delay: 0.4s; }
+.loader-text span:nth-child(4) { animation-delay: 0.6s; }
+.loader-text span:nth-child(5) { animation-delay: 0.8s; }
+.loader-text span:nth-child(6) { animation-delay: 1s; }
+.loader-text span:nth-child(7) { animation-delay: 1.2s; }
 
 @keyframes fadeInUp {
   to {
@@ -67,7 +67,6 @@ body {
     transform: translateY(0);
   }
 }
-
 /* Hide main content initially */
 #content {
   display: none;
@@ -79,15 +78,14 @@ body {
 <body>
 
   <div id="loader">
-  <div class="overlay"></div>
   <div class="loader-text">
-    <span style="animation-delay: 0s;">S</span>
-    <span style="animation-delay: 0.3s;">T</span>
-    <span style="animation-delay: 0.6s;">A</span>
-    <span style="animation-delay: 0.9s;">C</span>
-    <span style="animation-delay: 1.2s;">K</span>
-    <span style="animation-delay: 1.5s;">L</span>
-    <span style="animation-delay: 1.8s;">Y</span>
+    <span>S</span>
+    <span>t</span>
+    <span>a</span>
+    <span>c</span>
+    <span>k</span>
+    <span>l</span>
+    <span>y</span>
   </div>
 </div>
 
@@ -628,37 +626,18 @@ body {
 });
 
 window.addEventListener("load", () => {
-  const img = new Image();
-  img.src = 'Images1/Background2.jpg';
   const loader = document.getElementById("loader");
   const content = document.getElementById("content");
 
-  const hideLoader = () => {
-    if (!loader.classList.contains("done")) {
-      loader.classList.add("done");
-      loader.style.opacity = 0;
-      setTimeout(() => {
-        loader.style.display = "none";
-        content.style.display = "block";
-      }, 1000);
-    }
-  };
-
-  img.onload = () => {
-    const letters = document.querySelectorAll(".loader-text span");
-    const last = letters[letters.length - 1];
-    last.addEventListener("animationend", hideLoader);
-    // Fallback: hide after 5 seconds regardless
-    setTimeout(hideLoader, 5000);
-  };
-
-  img.onerror = () => {
-    // If image fails to load, hide loader after 5s
-    setTimeout(hideLoader, 5000);
-  };
+  setTimeout(() => {
+    loader.style.opacity = "0";
+    loader.style.transition = "opacity 0.5s ease";
+    setTimeout(() => {
+      loader.style.display = "none";
+      content.style.display = "block";
+    }, 500);
+  }, 1800); // Loader duration
 });
-
-
 
 </script>
 
