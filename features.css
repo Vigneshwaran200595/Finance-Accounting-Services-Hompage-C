@@ -309,13 +309,12 @@ body.dark-mode .footer-bottom {
 }
 
 
-/* Hero Section */
 .hero {
   position: relative;
   background: linear-gradient(rgba(0, 5, 5, 0.5), rgba(2, 19, 19, 0.5)),
               url('Images/Features.jpg') no-repeat center center;
-  background-size: cover;       /* fills entire section */
-  background-attachment: fixed; /* parallax effect */
+  background-size: cover;      
+  background-attachment: fixed;
   height: 500px;
   display: flex;
   justify-content: center;
@@ -373,7 +372,6 @@ body.dark-mode .footer-bottom {
   margin-top: 10px;
 }
 
-/* Section Headings */
 .sub-heading {
   text-align: center;
   color: #e63946;
@@ -388,7 +386,6 @@ body.dark-mode .footer-bottom {
   font-weight: 700;
 }
 
-/* Features */
 .features {
   padding: 60px 20px;
   text-align: center;
@@ -475,7 +472,7 @@ body.dark-mode .footer-bottom {
 }
 
 .icon img {
-  width: 80px;   /* adjust size */
+  width: 80px; 
   height: 80px;
   object-fit: contain;
 }
@@ -524,7 +521,7 @@ body.dark-mode .footer-bottom {
   align-items: center;
   justify-content: center;
   gap: 15px;
-  background: #fff;          /* white background */
+  background: #fff;        
   padding: 20px;
 }
 
@@ -543,7 +540,7 @@ body.dark-mode .footer-bottom {
   animation: bounceArrow 1.5s infinite;
 }
 
-/* Title Animation */
+
 @keyframes fadeSlide {
   from {
     opacity: 0.6;
@@ -555,7 +552,7 @@ body.dark-mode .footer-bottom {
   }
 }
 
-/* Arrow Animation */
+
 @keyframes bounceArrow {
   0%, 100% { transform: translateX(0); }
   50% { transform: translateX(8px); }
@@ -681,7 +678,7 @@ body.dark-mode .footer-bottom {
   max-width: 900px;
   flex-wrap: wrap;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.5); /* optional: semi-transparent overlay for readability */
+  background-color: rgba(0, 0, 0, 0.5);
   padding: 30px 40px;
   border-radius: 8px;
 }

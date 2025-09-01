@@ -1,4 +1,4 @@
-/* General reset */
+
 * {
   margin: 0;
   padding: 0;
@@ -15,7 +15,6 @@ body {
   overflow: hidden;
 }
 
-/* Container with fire split animation */
 .split-container {
   position: relative;
   width: 500px;
@@ -57,7 +56,7 @@ body {
   100% { transform: translateY(0); opacity: 0.7; }
 }
 
-/* Form styles */
+
 .form-container h2 {
   font-size: 24px;
    color: black;
@@ -138,7 +137,6 @@ body {
 }
 
 
-/* Balloon Animation */
 .balloon {
   position: absolute;
   bottom: -100px;
@@ -161,7 +159,6 @@ body {
   transform: translateX(-50%);
 }
 
-/* Multiple balloons with different speeds & positions */
 .balloon:nth-child(1) {
   left: 10%;
   animation-duration: 12s;

@@ -1,4 +1,4 @@
-/* ===================== GLOBAL ===================== */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
 * {
@@ -17,17 +17,17 @@ body {
 }
 
 .login-container {
-  width: 100vw;          /* full screen width */
-  height: 100vh;         /* full screen height */
+  width: 100vw;          
+  height: 100vh;         
   display: flex;
-  flex-direction: row;   /* always side by side */
-  flex-wrap: nowrap;     /* never wrap */
-  overflow: hidden;      /* no scrollbars */
+  flex-direction: row;   
+  flex-wrap: nowrap;  
+  overflow: hidden;    
   margin: 0;
   padding: 0;
 }
 
-/* ===================== LEFT SECTION (REGISTER) ===================== */
+
 .login-left {
     flex: 1;
     display: flex;
@@ -37,7 +37,7 @@ body {
     padding: 50px;
     text-align: center;
     color: #1f293a;
-    z-index: 10; /* Keep above background circles */
+    z-index: 10; 
 }
 
 .login-left .register-logo img {
@@ -111,10 +111,10 @@ body {
   color: #4a47d1;
 }
 
-/* ===================== RIGHT SECTION (LOGIN) ===================== */
+
 .login-right {
-  flex: 0 0 50vw;        /* lock to 50% of viewport width */
-  height: 100vh;         /* full height */
+  flex: 0 0 50vw;       
+  height: 100vh;        
   background: #fff8e1;
   display: flex;
   flex-direction: column;
@@ -130,10 +130,10 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* keeps it perfectly centered */
-    width: 350px;   /* size of circle */
+    transform: translate(-50%, -50%); 
+    width: 350px;
     height: 350px;
-    pointer-events: none; /* so it doesn’t block input clicks */
+    pointer-events: none;
 }
 
 .animation-container span {
@@ -243,7 +243,6 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* ===================== BACKGROUND CIRCLES ===================== */
 #container {
   flex: 0 0 50vw;
   height: 100vh; 
@@ -259,26 +258,26 @@ body {
 }
 
 #container-inside {
-    position: absolute;   /* relative to #container */
+    position: absolute; 
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 600px;
     max-width: 90vw;
-    z-index: 0;  /* always stay behind */
+    z-index: 0;
 }
 
-/* Common circle style */
+
 #circle-small, #circle-medium, #circle-large, #circle-xlarge, #circle-xxlarge {
     border-radius: 50%;
     background: #fff;
     position: absolute;
-    top: 50%;      /* center vertically */
-    left: 50%;     /* center horizontally */
-    transform: translate(-50%, -50%); /* make sure center aligns */
+    top: 50%;      
+    left: 50%;     
+    transform: translate(-50%, -50%); 
 }
 
-/* Different sizes + opacity + animation */
+
 #circle-small {
     width: 100px; height: 100px; opacity: 0.4;
     animation: circle-scale 3s ease-in-out infinite alternate;
@@ -292,19 +291,18 @@ body {
     animation: circle-scale 3s ease-in-out infinite alternate 0.6s;
 }
 
-/* Scale animation */
+
 @keyframes circle-scale {
     0% { transform: translate(-50%, -50%) scale(1); }
     100% { transform: translate(-50%, -50%) scale(1.1); }
 }
 
-/* Keep circles behind */
+
 #container, #container-inside, 
 #circle-small, #circle-medium, #circle-large {
     z-index: 0;
 }
 
-/* ===================== SWAP ANIMATION ===================== */
 .login-container.swap .login-right {
   transform: translateX(-100%);
   z-index: 1;
@@ -326,25 +324,25 @@ body {
 #circle-large,
 #circle-xlarge,
 #circle-xxlarge {
-    z-index: 0;   /* keep them in the back */
+    z-index: 0;
 }
 
-/* Bring the login-right section to the front */
+
 .login-left {
-    position: relative; /* needed so z-index applies */
-    z-index: 10;        /* higher than circles */
+    position: relative;
+    z-index: 10;
 }
 
 
-/* 📱 Mobile Styles */
+
 @media (max-width: 768px) {
   .login-container {
-    flex-direction: column;   /* stack vertically */
-    height: auto;             /* let height grow naturally */
-    overflow-y: auto;         /* allow scroll if needed */
+    flex-direction: column;   
+    height: auto;             
+    overflow-y: auto;       
   }
 
-  /* Both sections full width */
+ 
   .login-left,
   .login-right,
   #container {
@@ -358,7 +356,6 @@ body {
     margin-top: 80px;
   }
 
-  /* Register section text adjustments */
   .login-left h2 {
     font-size: 1.5em;
     margin-top: -20px;
@@ -371,7 +368,7 @@ body {
     margin-bottom: 20px;
   }
 
-  /* Login form adjustments */
+
   .input-box input {
     width: 90%;
     max-width: 260px;
@@ -395,17 +392,10 @@ body {
     font-size: 0.8em;
   }
 
-  /* Animation shrink / hide */
   .animation-container {
-    display: none; /* cleanest on mobile */
-    /* If you prefer keeping it smaller instead of hiding: 
-    width: 180px;
-    height: 180px;
-    top: 40%;
-    */
+    display: none;
   }
 
-  /* Circles smaller */
   #container-inside {
     width: 90%;
     max-width: 280px;

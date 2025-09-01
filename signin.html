@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="signin.css">
+</head>
+<body>
+  <!-- <div class="bg-dots"></div> -->
+<canvas id="dotCanvas"></canvas>
+  <div class="login-container">
+    <h1 class="title">Welcome Back</h1>
+    <form>
+      <input type="text" placeholder="Username" required>
+      <input type="password" placeholder="Password" required>
+      <div class="links">
+        <a href="forgotSaas.html">Forgot Password?</a>
+</div>
+      <button type="button" class="btn" onclick="window.location.href='404.html'">
+  Login
+</button>
+    </form>
+    <div class="links">
+      <a href="Saas.html">⬅ Return to Home</a>
+      <p>Don’t have an account? <a href="signup.html">Please Register</a></p>
+    </div>
+  </div>
+
+
+  <script>
+    const canvas = document.getElementById("dotCanvas");
+    const ctx = canvas.getContext("2d");
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let dots = [];
+    const numDots = 60;
+    const maxDistance = 150;
+
+    for (let i = 0; i < numDots; i++) {
+      dots.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: 3 + Math.random() * 3,
+        dx: (Math.random() - 0.5) * 1.5,
+        dy: (Math.random() - 0.5) * 1.5
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      dots.forEach(dot => {
+        ctx.beginPath();
+        ctx.arc(dot.x, dot.y, dot.radius, 0, Math.PI * 2);
+        ctx.fillStyle = "#ff4a17";
+        ctx.fill();
+      });
+
+      for (let i = 0; i < dots.length; i++) {
+        for (let j = i + 1; j < dots.length; j++) {
+          let dx = dots[i].x - dots[j].x;
+          let dy = dots[i].y - dots[j].y;
+          let distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < maxDistance) {
+            ctx.beginPath();
+            ctx.moveTo(dots[i].x, dots[i].y);
+            ctx.lineTo(dots[j].x, dots[j].y);
+            ctx.strokeStyle = `rgba(255, 74, 23, ${1 - distance / maxDistance})`;
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
+        }
+      }
+
+      dots.forEach(dot => {
+        dot.x += dot.dx;
+        dot.y += dot.dy;
+
+        if (dot.x < 0 || dot.x > canvas.width) dot.dx *= -1;
+        if (dot.y < 0 || dot.y > canvas.height) dot.dy *= -1;
+      });
+
+      requestAnimationFrame(draw);
+    }
+
+    draw();
+
+    window.addEventListener("resize", () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  </script>
+</body>
+</html>

@@ -8,7 +8,7 @@
 }
 
 body {
-    background: #fff8e1; /* dark page background */
+    background: #fff8e1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,7 +22,6 @@ body {
     overflow: hidden;
 }
 
-/* Left Section: Login */
 .login-left {
     flex: 1;
     background: #fff8e1;
@@ -30,7 +29,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;  /* Center the form horizontally */
+    align-items: center; 
     padding: 50px;
     position: relative;
     overflow: hidden;
@@ -39,10 +38,10 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* keeps it perfectly centered */
-    width: 350px;   /* size of circle */
+    transform: translate(-50%, -50%); 
+    width: 350px;  
     height: 350px;
-    pointer-events: none; /* so it doesn’t block input clicks */
+    pointer-events: none;
 }
 
 .animation-container span {
@@ -62,11 +61,11 @@ body {
 .input-box,
 .forgot-pass,
 .btn {
-    z-index: 1; /* keep form elements above spans */
+    z-index: 1; 
 }
 
 .btn {
-    pointer-events: auto; /* ensure it's clickable */
+    pointer-events: auto;
 }
 
 @keyframes animateBlink {
@@ -125,17 +124,17 @@ body {
 .forgot-pass {
     margin: -15px 0 20px;
     text-align: center;
-    position: relative;   /* ensure it's in flow */
-    z-index: 10;          /* higher priority */
+    position: relative; 
+    z-index: 10;
 }
 
 .forgot-pass a {
     font-size: 0.85em;
     color: black;
     text-decoration: none;
-    cursor: pointer;      /* show hand cursor */
+    cursor: pointer;
     position: relative;
-    z-index: 20;          /* make sure it's above other layers */
+    z-index: 20;
 }
 
 
@@ -150,8 +149,8 @@ body {
     font-weight: 600;
     color: #1f293a;
     margin-top: 10px;
-    z-index: 9999;            /* bring button to front */
-    position: relative;       /* make z-index effective */
+    z-index: 9999;           
+    position: relative;       
     text-align: center;
     line-height: 50px;
     transition: all 0.3s ease;
@@ -165,7 +164,6 @@ body {
 }
 
 
-/* Right Section: Register */
 .login-right {
     flex: 1;
     display: flex;
@@ -214,8 +212,8 @@ body {
 }
 
 .login-right .register-logo img {
-    width: 200px;  /* increased from 100px */
-    height: auto;  /* maintain aspect ratio */
+    width: 200px;
+    height: auto;
     margin-bottom: 30px;
 }
 
@@ -235,26 +233,26 @@ body {
 }
 
 #container-inside {
-    position: absolute;   /* relative to #container */
+    position: absolute; 
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 600px;
     max-width: 90vw;
-    z-index: 0;  /* always stay behind */
+    z-index: 0;
 }
 
-/* Common circle style */
+
 #circle-small, #circle-medium, #circle-large, #circle-xlarge, #circle-xxlarge {
     border-radius: 50%;
     background: #fff;
     position: absolute;
-    top: 50%;      /* center vertically */
-    left: 50%;     /* center horizontally */
-    transform: translate(-50%, -50%); /* make sure center aligns */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-/* Different sizes + opacity + animation */
+
 #circle-small {
     width: 100px; height: 100px; opacity: 0.4;
     animation: circle-scale 3s ease-in-out infinite alternate;
@@ -268,7 +266,6 @@ body {
     animation: circle-scale 3s ease-in-out infinite alternate 0.6s;
 }
 
-/* Scale animation */
 @keyframes circle-scale {
     0% { transform: translate(-50%, -50%) scale(1); }
     100% { transform: translate(-50%, -50%) scale(1.1); }
@@ -282,13 +279,13 @@ body {
 #circle-large,
 #circle-xlarge,
 #circle-xxlarge {
-    z-index: 0;   /* keep them in the back */
+    z-index: 0; 
 }
 
-/* Bring the login-right section to the front */
+
 .login-right {
-    position: relative; /* needed so z-index applies */
-    z-index: 10;        /* higher than circles */
+    position: relative; 
+    z-index: 10;       
 }
 
 .back-home {
@@ -299,13 +296,13 @@ body {
 .back-home a {
   text-decoration: none;
   font-size: 14px;
-  color: #6c63ff;   /* match your theme color */
+  color: #6c63ff;  
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
 .back-home a:hover {
-  color: #4a47d1;   /* slightly darker on hover */
+  color: #4a47d1; 
 }
 
 .login-container.swap .login-left {
@@ -324,15 +321,14 @@ body {
 }
 
 
-/* 📱 Mobile adjustments */
 @media (max-width: 768px) {
   .login-container {
-    flex-direction: column;   /* stack vertically */
-    height: auto;             /* let height grow naturally */
-    overflow-y: auto;         /* allow scroll if needed */
+    flex-direction: column;   
+    height: auto;             
+    overflow-y: auto;         
   }
 
-  /* Both sections full width */
+
   .login-left,
   .login-right,
   #container {
@@ -346,7 +342,7 @@ body {
     margin-top: 400px;
   }
 
-  /* Register section text adjustments */
+  
   .login-left h2 {
     font-size: 1.5em;
     margin-top: -20px;
@@ -359,7 +355,7 @@ body {
     margin-bottom: 20px;
   }
 
-  /* Login form adjustments */
+ 
   .input-box input {
     width: 90%;
     max-width: 260px;
@@ -383,17 +379,10 @@ body {
     font-size: 0.8em;
   }
 
-  /* Animation shrink / hide */
   .animation-container {
-    display: none; /* cleanest on mobile */
-    /* If you prefer keeping it smaller instead of hiding: 
-    width: 180px;
-    height: 180px;
-    top: 40%;
-    */
+    display: none;
   }
 
-  /* Circles smaller */
   #container-inside {
     width: 90%;
     max-width: 280px;

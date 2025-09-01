@@ -393,7 +393,6 @@ body {
   100% { transform: translateY(0px); }
 }
 
-/* ✨ Apply animations to existing images */
 .img1 {
   animation: fadeInUp 1s ease-out forwards, float 4s ease-in-out infinite;
 }
@@ -408,13 +407,12 @@ body {
   animation-delay: 0.4s;
 }
 
-/* Optional: smooth hover effect */
+
 .img1:hover, .img2:hover, .video-box img:hover {
   transform: scale(1.05);
   transition: transform 0.3s ease-in-out;
 }
 
-/* Tablet: stack columns and reduce gaps */
 @media screen and (max-width: 992px) {
   .about-container {
     flex-direction: column;
@@ -444,7 +442,6 @@ body {
   }
 }
 
-/* Mobile: single column layout */
 @media screen and (max-width: 768px) {
   .about-container {
     flex-direction: column;

@@ -117,7 +117,7 @@ const images = document.querySelectorAll(".arc-img");
 
 document.addEventListener("DOMContentLoaded", function() {
   const content = document.getElementById("content");
-  content.style.display = "block"; // make sure content is visible
+  content.style.display = "block"; 
 
   const menuToggle = document.querySelector(".menu-toggle");
   const navLinks = document.querySelector(".nav-links");
@@ -147,5 +147,5 @@ window.addEventListener("load", () => {
       loader.style.display = "none";
       content.style.display = "block";
     }, 500);
-  }, 1000); // Loader duration
+  }, 1000);
 });

@@ -517,7 +517,6 @@ padding-bottom: 30px;
   }
 }
 
-/* 🔲 Common animation keyframes */
 @keyframes blinkBorderGrey {
   0% { border: 10px solid transparent; }
   50% { border: 10px solid grey; }
@@ -530,12 +529,10 @@ padding-bottom: 30px;
   100% { border: 10px solid transparent; }
 }
 
-/* First service card (grey blinking border) */
 .ourservice-card.fixed {
   animation: blinkBorderGrey 1.2s infinite;
 }
 
-/* Last 5 service cards (green blinking border) */
 .ourservice-card:not(.fixed) {
   animation: blinkBorderGreen 1.2s infinite;
   border-radius: 0px 0px 20px 0;
@@ -547,8 +544,8 @@ padding-bottom: 30px;
   justify-content: space-between;
   background: linear-gradient(
     to right,
-    #fffbe9 50%,   /* left 60% cream */
-    #00c39a 60%    /* right 40% green */
+    #fffbe9 50%,   
+    #00c39a 60%    
   );
   padding: 60px 40px;
   gap: 40px;
@@ -718,7 +715,6 @@ padding-bottom: 30px;
       margin-bottom: 8px;
     }
 
-  /* Tablets: max-width 992px */
 @media screen and (max-width: 992px) {
   .why-choose-us {
     flex-direction: column;
@@ -770,7 +766,7 @@ padding-bottom: 30px;
   }
 }
 
-/* Mobile devices: max-width 768px */
+
 @media screen and (max-width: 768px) {
   .why-choose-us {
     flex-direction: column;
@@ -810,7 +806,7 @@ padding-bottom: 30px;
     height: auto;
     bottom: 0;
     left: 0;
-    margin-top: -60px; /* stack over main image slightly */
+    margin-top: -60px;
   }
 
   .features-list {

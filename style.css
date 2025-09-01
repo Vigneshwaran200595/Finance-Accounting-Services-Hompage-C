@@ -206,12 +206,12 @@ body {
 
 .hero {
   display: flex;
-  justify-content: center;   /* center content horizontally */
+  justify-content: center;
   align-items: center;
-  gap: 5%;                   /* space between left & right */
-  max-width: 1200px;         /* keeps layout centered */
-  margin: 0 auto;            /* center the container */
-  padding: 60px 40px;        /* smaller, balanced padding */
+  gap: 5%;                 
+  max-width: 1200px;      
+  margin: 0 auto;        
+  padding: 60px 40px;       
   height: 100vh;
   box-sizing: border-box;
 }
@@ -219,8 +219,8 @@ body {
 
 .hero-left,
 .hero-right {
-  flex: 1;             /* both take equal width */
-  min-width: 0;        /* prevents overflow */
+  flex: 1;             
+  min-width: 0;       
 }
 
 .hero-left {
@@ -232,7 +232,7 @@ body {
 }
 
 .hero-left h1 {
-  font-size: 2.6rem;  /* scales with zoom */
+  font-size: 2.6rem;
   margin-bottom: 2rem;
   line-height: 1.4;
 }
@@ -249,7 +249,7 @@ body {
   bottom: -2px;
   height: 2px;
   background-color: #00ffe0;
-  width: 0;                        /* start hidden */
+  width: 0;                       
   animation: underlineWidth 2s infinite ease-in-out;
 }
 

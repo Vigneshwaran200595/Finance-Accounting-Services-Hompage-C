@@ -17,11 +17,9 @@ body {
   padding: 0;
   overflow-x: hidden;
   color: #fff;
-  background: none; /* important: no background here */
+  background: none;
 }
 
-/* Loader Fullscreen */
-/* Loader Fullscreen */
 #loader {
     position: fixed;
     top: 0;
@@ -30,11 +28,11 @@ body {
     height: 100%;
     background: linear-gradient(rgba(0, 80, 90, 0.8), rgba(0, 50, 50, 0.9)),
                 url('Images1/Background2.jpg') no-repeat center center fixed;
-    background-size: cover;   /* important to cover screen */
+    background-size: cover;
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 99999; /* keep above everything */
+    z-index: 99999;
     color: #00ffe0;
     font-size: 3rem;
     font-family: 'Poppins', sans-serif;
@@ -42,7 +40,6 @@ body {
 }
 
 
-  /* Letter animation */
   #loader-text {
     display: inline-block;
   }
@@ -52,7 +49,6 @@ body {
   animation: spinIn 0.6s forwards;
 }
 
-/* Each letter delay */
 #loader-text span:nth-child(1) { animation-delay: 0s; }
 #loader-text span:nth-child(2) { animation-delay: 0.2s; }
 #loader-text span:nth-child(3) { animation-delay: 0.4s; }
@@ -61,7 +57,7 @@ body {
 #loader-text span:nth-child(6) { animation-delay: 1.0s; }
 #loader-text span:nth-child(7) { animation-delay: 1.2s; }
 
-/* Spinning + FadeIn Animation */
+
 @keyframes spinIn {
   from {
     opacity: 0;
@@ -73,7 +69,6 @@ body {
   }
 }
 
-/* Hide main content initially */
 #content {
   display: none;
 }
@@ -613,7 +608,7 @@ body {
 <script>
   document.addEventListener("DOMContentLoaded", function() {
   const content = document.getElementById("content");
-  content.style.display = "block"; // make sure content is visible
+  content.style.display = "block";
 
   const menuToggle = document.querySelector(".menu-toggle");
   const navLinks = document.querySelector(".nav-links");
@@ -632,12 +627,11 @@ const text = document.getElementById("loader-text");
     text.appendChild(span);
   });
 
-  // Show content after short delay
   document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
       document.getElementById("loader").style.display = "none";
       document.getElementById("content").style.display = "block";
-    }, 2000); // 1.5s loader
+    }, 2000);
   });
 
 </script>

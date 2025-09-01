@@ -286,10 +286,8 @@ body {
   justify-content: space-between;
   align-items: center;
   transition: background 0.3s, box-shadow 0.3s;
-
-  /* subtle shadow for depth, no black edges */
   box-shadow: 0 2px 4px rgba(230, 219, 219, 0.05);
-  border-radius: 8px; /* optional, makes shadow smoother */
+  border-radius: 8px;
 }
 
 
@@ -319,7 +317,7 @@ body {
   background: #fff8e1;
   color: #333;
   text-align: left;
-  box-shadow: 0 4px 6px #fff8e1; /* Same color as background */
+  box-shadow: 0 4px 6px #fff8e1;
 }
 
 .faq-answer p {

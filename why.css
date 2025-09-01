@@ -310,13 +310,12 @@ body.dark-mode .footer-bottom {
 }
 
 
-/* Hero Section */
 .hero {
   position: relative;
   background: linear-gradient(rgba(0, 5, 5, 0.5), rgba(2, 19, 19, 0.5)),
               url('Images/why.jpg') no-repeat center center;
-  background-size: cover;       /* fills entire section */
-  background-attachment: fixed; /* parallax effect */
+  background-size: cover;       
+  background-attachment: fixed;
   height: 500px;
   display: flex;
   justify-content: center;
@@ -410,12 +409,12 @@ body.dark-mode .footer-bottom {
   height: 150px;
   border-radius: 50%;
   object-fit: cover;
-  border: 5px solid #ff4500;  /* start with orange */
+  border: 5px solid #ff4500;
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
   animation: blinkBorder 1.5s infinite alternate;
 }
 
-/* Border Animation */
+
 @keyframes blinkBorder {
   0% {
     border-color: #ff4500;
@@ -564,12 +563,11 @@ body.dark-mode .footer-bottom {
 }
 
 .circle-btn1:hover {
-  color: #000;              /* text turns black */
-  background-color: #fff;   /* background turns white */
+  color: #000;             
+  background-color: #fff; 
 }
 
 
-/* Decorative curved lines */
 .cta-section::before,
 .cta-section::after {
   content: "";
@@ -829,7 +827,7 @@ body.dark-mode .footer-bottom {
   max-width: 900px;
   flex-wrap: wrap;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.5); /* optional: semi-transparent overlay for readability */
+  background-color: rgba(0, 0, 0, 0.5);
   padding: 30px 40px;
   border-radius: 8px;
 }
