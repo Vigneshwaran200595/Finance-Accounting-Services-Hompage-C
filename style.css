@@ -25,9 +25,6 @@ body {
   align-items: center;
 }
 
-.logo img {
-  height: 40px;
-}
 
 .nav-links {
   list-style: none;
@@ -124,6 +121,11 @@ body {
 
 .dropdown-menu a:hover {
   background-color: #055a5a;
+}
+
+
+.logo img {
+  height: 40px;
 }
 
 
@@ -2350,3 +2352,6 @@ body {
     margin-top: 30px;
   }
 }
+
+
+

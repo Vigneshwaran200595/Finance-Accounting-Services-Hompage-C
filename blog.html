@@ -14,22 +14,29 @@
 <body>
   <header class="navbar">
   <div class="logo">
-    <a href="#" class="logo-text">Stackly</a>
+    <a href="#">
+      <img src="Images1/logo.png" alt="Stackly Logo" class="logo-img">
+    </a>
   </div>
-   <button class="menu-toggle">&#9776;</button>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="service.html">Services</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-        <!-- <li><a href="404_1.html">Dashboard</a></li> -->
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><button class="btn-appointment" onclick="location.href='login.html'">Make Appointment</button></li>
-      </ul>
-    </nav>
-  </header>
+  <button class="menu-toggle">&#9776;</button>
+  <nav>
+    <ul class="nav-links">
+      <li class="dropdown">
+        <a href="#">Home ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="index.html">Home 1</a></li>
+          <li><a href="Saas.html">Home 2</a></li>
+        </ul>
+      </li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="service.html">Services</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><button class="btn-appointment" onclick="location.href='login.html'">Make Appointment</button></li>
+    </ul>
+  </nav>
+</header>
 
   <hr class="divider" />
 
@@ -126,7 +133,11 @@
 <footer class="footer-section">
   <div class="footer-container">
     <div class="footer-column about">
-      <a class="logo-text1">Stackly</a>
+      <div class="logo">
+  <a href="#">
+    <img src="Images1/logo.png" alt="Stackly Logo" class="logo-img">
+  </a>
+</div>
       <p>
         Empowering businesses with smart solutions your success is our priority.
       </p>

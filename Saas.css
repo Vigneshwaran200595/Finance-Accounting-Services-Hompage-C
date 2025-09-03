@@ -26,6 +26,13 @@ a {
     z-index: 10000;
   }
 
+  .nav-left .logo {
+  width: 150px;
+  height: auto;
+  margin-left: -15px;
+  display: block;
+}
+
 
 .nav-left-overlay {
   position: absolute;
@@ -49,17 +56,15 @@ a {
   z-index: 2;
 }
 
-.logo {
-  margin-top: 20px;
-  width: 150px;
-  height: auto;
-}
+
+
+
 
 .nav-links {
   list-style: none;
   display: flex;
   gap: 30px;
-  left: 60px;
+  left: 40px;
   align-items: center;
   position: relative;
   z-index: 2;
@@ -1774,14 +1779,12 @@ a {
   max-width: 300px;
 }
 
-.footer-logo .logo1 {
-  font-size: 28px;
-  font-weight: bold;
+ .logo1 {
+  font-size: 20px;
 
 }
 
 .footer-logo p {
-  margin-top: -80px;
   margin-bottom: 20px;
   color: #9aa5b1;
 }

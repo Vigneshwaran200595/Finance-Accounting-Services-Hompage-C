@@ -24,7 +24,13 @@
     </button>
 
     <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
+      <li class="dropdown">
+        <a href="#">Home ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="index.html">Home 1</a></li>
+          <li><a href="Saas.html">Home 2</a></li>
+        </ul>
+      </li>
       <li><a href="features.html">Features</a></li>
       <li><a href="pricing.html">Pricing</a></li>
       <li><a href="why.html">Why Choose Us</a></li>
@@ -36,14 +42,13 @@
     </div>
 
     <div class="nav-right">
-      <button class="consulting-btn" onclick="location.href='signin.html'">
+      <button class="consulting-btn" onclick="location.href='login.html'">
         <div class="consulting-text">Consulting Now</div>
         <span class="dot"></span>
       </button>
     </div>
   </div>
 </nav>
-
 <header class="hero">
     <div class="slider">
       <div class="slide active"><img src="Images/bg1.jpg" alt="Slide 1"/></div>
