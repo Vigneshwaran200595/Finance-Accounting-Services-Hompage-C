@@ -42,6 +42,8 @@ body {
 .loader-content {
   display: flex;
   align-items: center;
+  flex-direction: row;
+  justify-content: center;
   gap: 15px;
   animation: fadeIn 1s ease-in-out;
 }
@@ -80,6 +82,65 @@ body {
   display: none;
 }
 
+.loader-logo {
+  width: 80px;   /* adjust size */
+  height: auto;
+}
+
+
+/* Mobile Responsive Styles */
+@media screen and (max-width: 768px) {
+  #loader {
+    font-size: 2rem;         /* reduce loader text size */
+    letter-spacing: 3px;     /* tighten spacing */
+    padding: 0 15px;         /* add some breathing space */
+    text-align: center;      /* center text for small screens */
+  }
+
+  .loader-content {
+    flex-direction: column;  /* stack text vertically */
+    gap: 10px;               /* reduce gap */
+  }
+
+  #loader-text span {
+    font-size: 1.8rem;       /* slightly smaller characters */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #loader {
+    font-size: 1.5rem;       /* further reduce size for very small screens */
+    letter-spacing: 2px;
+  }
+
+  #loader-text span {
+    font-size: 1.5rem;
+  }
+
+  .loader-content {
+    gap: 8px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .loader-logo {
+    width: 60px;
+  }
+  .loader-content {
+    gap: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .loader-logo {
+    width: 50px;
+  }
+  #loader-text {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+  }
+}
+
   </style>
 
 </head>
@@ -103,12 +164,12 @@ body {
   <nav>
     <ul class="nav-links">
       <li class="dropdown">
-        <a href="#">Home ▾</a>
-        <ul class="dropdown-menu">
-          <li><a href="index.html">Home 1</a></li>
-          <li><a href="Saas.html">Home 2</a></li>
-        </ul>
-      </li>
+    <a href="index.html" class="dropdown-link">Home</a>
+    <span class="arrow">▾</span>
+    <ul class="dropdown-menu">
+      <li><a href="Saas.html">Home Page 2</a></li>
+    </ul>
+  </li>
       <li><a href="about.html">About</a></li>
       <li><a href="service.html">Services</a></li>
       <li><a href="faq.html">FAQ</a></li>
@@ -627,17 +688,29 @@ body {
   });
 </script>
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
-  const content = document.getElementById("content");
-  content.style.display = "block";
-
+document.addEventListener("DOMContentLoaded", function() {
   const menuToggle = document.querySelector(".menu-toggle");
   const navLinks = document.querySelector(".nav-links");
 
-  menuToggle.addEventListener("click", function() {
-    navLinks.classList.toggle("active");
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener("click", function() {
+      navLinks.classList.toggle("active");
+    });
+  }
+
+  document.querySelectorAll(".dropdown .arrow").forEach(arrow => {
+    arrow.addEventListener("click", function(e) {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        const parent = arrow.parentElement;
+        parent.classList.toggle("open");
+      }
+    });
   });
 });
+
+
+
 
 const text = document.getElementById("loader-text");
   const word = text.innerText;
@@ -660,5 +733,4 @@ const text = document.getElementById("loader-text");
   <script src="script.js"></script>
 </body>
 </html>
-
 

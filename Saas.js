@@ -107,13 +107,23 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-const toggleBtn = document.getElementById("menu-toggle");
-const navLinks = document.querySelector(".nav-links");
+const menuToggle = document.getElementById("menu-toggle");
+  const navLinks = document.getElementById("nav-links");
 
-toggleBtn.addEventListener("click", () => {
-  navLinks.classList.toggle("active");
-  toggleBtn.classList.toggle("active");
-});
+  menuToggle.addEventListener("click", () => {
+    menuToggle.classList.toggle("active");
+    navLinks.classList.toggle("active");
+  });
+
+  // Dropdown toggle on arrow click (mobile only)
+  document.querySelectorAll(".dropdown .arrow").forEach(arrow => {
+    arrow.addEventListener("click", (e) => {
+      e.preventDefault(); // Prevent link trigger
+      const parent = arrow.parentElement;
+      parent.classList.toggle("open");
+    });
+  });
+
 
 
 window.addEventListener("scroll", function() {

@@ -16,23 +16,21 @@ a {
 
 
   .navbar {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    height: 90px;
-    background: white;
-    z-index: 10000;
-  }
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 90px;
+  background: white;
+  z-index: 10000;
+}
 
- .nav-left .logo {
+.nav-left .logo2 {
   width: 150px;
   height: auto;
   margin-left: -15px;
-  margin-top: -5px;
   display: block;
 }
-
 
 .nav-left-overlay {
   position: absolute;
@@ -40,11 +38,10 @@ a {
   left: -15%;
   width: 36.7%;
   height: 90px;
-  background:   rgb(236, 64, 11);
+  background: rgb(236, 64, 11);
   transform: skewX(-45deg);
   z-index: 1;
 }
-
 
 .navbar-content {
   position: relative;
@@ -56,21 +53,16 @@ a {
   z-index: 2;
 }
 
-.logo {
-  margin-top: 20px;
-  width: 150px;
-  height: auto;
-}
-
 .nav-links {
   list-style: none;
   display: flex;
   gap: 30px;
-  left: 60px;
   align-items: center;
   position: relative;
-  z-index: 2;
+  margin-left: 30px;
+  z-index: 2; 
 }
+
 .nav-links li a {
   font-weight: bold;
   font-size: 18px;
@@ -82,46 +74,70 @@ a {
 
 .dropdown {
   position: relative;
-  left:12px
 }
 
 .dropdown-menu {
   display: none;
-  position: absolute;
-  left: 0;
-  background-color: #033232;
-  min-width: 160px;
-  border-radius: 6px;
-  z-index: 9999;
   list-style: none;
   flex-direction: column;
-  pointer-events: auto;
+  border-radius: 6px;
+  z-index: 9999;
+  margin: 0;
+  padding: 0;
 }
 
-.dropdown:hover .dropdown-menu {
-  display: block;
+
+@media (min-width: 769px) {
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 160px;
+    background-color: #033232;
+  }
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  .dropdown-menu li a {
+    padding: 10px 20px;
+    color: #fff;
+    display: block;
+    white-space: nowrap;
+    border-radius: 4px;
+  }
+  .dropdown-menu li a:hover {
+    background-color: #055a5a;
+  }
 }
 
-.dropdown-menu li a {
-  padding: 10px 20px;
-  color: #fff;
-  white-space: nowrap;
-  display: block;
-  border-radius: 4px;
+@media (max-width: 768px) {
+  .dropdown-menu {
+    position: static;
+    width: 100%;
+    background: #f9f9f9;
+    padding-left: 15px;
+    border-radius: 4px;
+  }
+  .dropdown.open .dropdown-menu {
+    display: flex !important;
+  }
+  .dropdown-menu li a {
+    padding: 10px 15px;
+    color: #000;
+    display: block;
+  }
+
+  .nav-left .logo2 {
+  width: 80px;
+  margin-left: -20px;
+  }
 }
 
-.dropdown-menu li a:hover {
-  background-color: #055a5a;
-}
 
-.nav-links .dropdown > a {
-  position:relative;
-}
-.nav-links .dropdown .arrow {
-  position: relative;
-  top: 2px;
-    right:10px;
-  font-size: 20px;
+@media screen and (max-width: 768px) {
+  .nav-links {
+    margin-left: 0;
+  }
 }
 
 .nav-right {
@@ -177,7 +193,6 @@ a {
   z-index: 10002;
   margin-left: 10px;
 }
-
 .menu-toggle span {
   display: block;
   height: 3px;
@@ -185,12 +200,11 @@ a {
   border-radius: 2px;
   transition: all 0.3s ease;
 }
-
-
 @media (max-width: 768px) {
   .menu-toggle {
     display: flex;
   }
+
   .nav-links {
     position: fixed;
     top: 90px;
@@ -198,20 +212,22 @@ a {
     flex-direction: column;
     background: white;
     width: 100%;
-    height: calc(100vh - 90px);
-    padding: 20px;
-    gap: 0;
+    max-height: 70vh;
+    overflow-y: auto;
+    padding: 10px 20px;
     transition: left 0.3s ease;
     z-index: 10001;
   }
+
   .nav-links li {
-    padding: 15px 0;
+    padding: 10px 0;
     border-bottom: 1px solid #ddd;
+    font-size: 14px;
   }
+
   .nav-links.active {
     left: 0;
   }
- 
 
   .menu-toggle.active span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
@@ -222,16 +238,32 @@ a {
   .menu-toggle.active span:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -5px);
   }
-  .logo {
-    width: 100px;
-    height: 200px;
-  }
-  .dark-mode-toggle {
+
+.dark-mode-toggle {
   margin-right: 10px;
   position: relative;
   left: 15px;
 }
 }
+
+
+@media (max-width: 768px) {
+  .dropdown .arrow1 {
+    cursor: pointer;
+    margin-left: 8px;
+    color: black;
+    font-size: 22px;       /* increase arrow size */
+    background-color: red; /* background color */
+    padding: 5px 10px;     /* background size */
+    border-radius: 4px;
+    display: inline-block; /* ensures background wraps */
+  }
+
+  .dropdown.open > .arrow1 {
+    transform: rotate(180deg);
+  }
+}
+
 
 
 body.dark-mode {

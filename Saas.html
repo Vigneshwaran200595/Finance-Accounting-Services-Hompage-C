@@ -23,12 +23,12 @@
       <span></span>
     </button>
 
-    <ul class="nav-links">
+    <ul class="nav-links" id="nav-links">
       <li class="dropdown">
-        <a href="#">Home ▾</a>
+        <a href="Saas.html" class="dropdown-link">Home</a>
+        <span class="arrow1">▾</span>
         <ul class="dropdown-menu">
-          <li><a href="index.html">Home 1</a></li>
-          <li><a href="Saas.html">Home 2</a></li>
+          <li><a href="index.html">Home Page 1</a></li>
         </ul>
       </li>
       <li><a href="features.html">Features</a></li>
@@ -616,6 +616,24 @@
   });
 </script>
 
+<script>
+const menuToggle = document.getElementById("menu-toggle");
+  const navLinks = document.getElementById("nav-links");
+
+  menuToggle.addEventListener("click", () => {
+    menuToggle.classList.toggle("active");
+    navLinks.classList.toggle("active");
+  });
+
+  // Dropdown toggle on arrow click (mobile only)
+  document.querySelectorAll(".dropdown .arrow1").forEach(arrow => {
+    arrow.addEventListener("click", (e) => {
+      e.preventDefault(); // Prevent link trigger
+      const parent = arrow.parentElement;
+      parent.classList.toggle("open");
+    });
+  });
+</script>
   <script src="Saas.js"></script>
 </body>
 </html>
