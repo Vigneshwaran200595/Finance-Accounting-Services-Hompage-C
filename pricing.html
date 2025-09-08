@@ -88,7 +88,7 @@
         <li>✔ 1 Month Maintenance</li>
         <li>✔ 24/7 Customer Support</li>
       </ul>
-      <button class="test-btn" onclick="location.href='404_1.html'">View More</button>
+      <button class="test-btn" onclick="location.href='404.html'">View More</button>
     </div>
 
     <div class="test-card1 test-featured zoom-effect" data-aos="fade-up" data-aos-delay="400">
@@ -111,7 +111,7 @@
         <li>✔ 1 Month Maintenance</li>
         <li>✔ 24/7 Customer Support</li>
       </ul>
-      <button class="test-btn test-dark" onclick="location.href='404_1.html'">View More</button>
+      <button class="test-btn test-dark" onclick="location.href='404.html'">View More</button>
     </div>
 
     <div class="test-card1" data-aos="fade-right" data-aos-delay="300">
@@ -131,7 +131,7 @@
         <li>✔ 1 Month Maintenance</li>
         <li>✔ 24/7 Customer Support</li>
       </ul>
-      <button class="test-btn" onclick="location.href='404_1.html'">View More</button>
+      <button class="test-btn" onclick="location.href='404.html'">View More</button>
     </div>
 
   </div>
@@ -239,10 +239,9 @@ const menuToggle = document.getElementById("menu-toggle");
     navLinks.classList.toggle("active");
   });
 
-  // Dropdown toggle on arrow click (mobile only)
   document.querySelectorAll(".dropdown .arrow1").forEach(arrow => {
     arrow.addEventListener("click", (e) => {
-      e.preventDefault(); // Prevent link trigger
+      e.preventDefault();
       const parent = arrow.parentElement;
       parent.classList.toggle("open");
     });

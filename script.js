@@ -158,20 +158,18 @@ document.addEventListener("DOMContentLoaded", function() {
   const menuToggle = document.querySelector(".menu-toggle");
   const navLinks = document.querySelector(".nav-links");
 
-  // ✅ Mobile menu toggle
   if (menuToggle && navLinks) {
     menuToggle.addEventListener("click", function() {
       navLinks.classList.toggle("active");
     });
   }
 
-  // ✅ Dropdown click toggle for mobile
   document.querySelectorAll(".dropdown > a").forEach(dropdownLink => {
     dropdownLink.addEventListener("click", function(e) {
       if (window.innerWidth <= 768) {
         e.preventDefault();
         const parent = dropdownLink.parentElement;
-        parent.classList.toggle("open"); // <-- will open/close correctly
+        parent.classList.toggle("open");
       }
     });
   });

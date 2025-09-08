@@ -76,7 +76,7 @@ body {
   margin: 0 40px;
 }
 
-/* DROPDOWN (Desktop) */
+
 .dropdown:hover .dropdown-menu {
   display: block;
 }
@@ -108,7 +108,7 @@ body {
   background-color: #055a5a;
 }
 
-/* ARROW */
+
 .arrow {
   font-size: 16px;
   margin-left: 5px;
@@ -129,7 +129,7 @@ body {
   cursor: pointer;
 }
 
-/* MOBILE */
+
 @media screen and (max-width: 768px) {
   .navbar {
     flex-direction: column;
@@ -145,9 +145,9 @@ body {
   }
 
     .arrow {
-    font-size: 22px;       /* Bigger arrow */      /* Small gap */
+    font-size: 22px;
     color: White; 
-    background: #00c39a;       /* Highlight arrow */
+    background: #00c39a;
     cursor: pointer;
     margin-right: 100px;
     width: 200px;
@@ -186,7 +186,7 @@ body {
     display: flex;
   }
 
-  /* Dropdown inside mobile */
+
   .dropdown-menu {
     display: none !important;
     flex-direction: column;

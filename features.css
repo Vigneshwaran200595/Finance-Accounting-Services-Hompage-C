@@ -252,11 +252,11 @@ a {
     cursor: pointer;
     margin-left: 8px;
     color: black;
-    font-size: 22px;       /* increase arrow size */
-    background-color: red; /* background color */
-    padding: 5px 10px;     /* background size */
+    font-size: 22px;    
+    background-color: red;
+    padding: 5px 10px;     
     border-radius: 4px;
-    display: inline-block; /* ensures background wraps */
+    display: inline-block;
   }
 
   .dropdown.open > .arrow1 {
@@ -463,7 +463,7 @@ body.dark-mode .footer-bottom {
 .box:hover {
   background: #f9f9f9;
   transform: translateY(-5px);
-  box-shadow: 0 4px 12px rgba(255, 0, 0, 0.5); /* red shadow */
+  box-shadow: 0 4px 12px rgba(255, 0, 0, 0.5);
 }
 
 .box .icon {
