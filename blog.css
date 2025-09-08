@@ -262,6 +262,10 @@ body {
   flex: 2;
 }
 
+.post-card a:hover {
+  color: #5dffe1;
+}
+
 .post-card {
   background: #073b3a;
   color: white;
@@ -325,6 +329,12 @@ cursor: pointer;
   border-radius: 8px;
   font-size: 1em;
   cursor: pointer;
+}
+
+.load-more:hover
+{
+  background-color: #00ffe0;
+  color: black;
 }
 
 .sidebar {
