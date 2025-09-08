@@ -3,9 +3,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
 }
 body, html {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", sans-serif;
   overflow-x: hidden;
   padding-top: 10px;
 }
@@ -60,7 +61,7 @@ a {
   gap: 30px;
   align-items: center;
   position: relative;
-  margin-left: 30px;
+  margin-left: 120px;
   z-index: 2; 
 }
 
@@ -149,6 +150,7 @@ a {
   border-radius: 999px;
   font-weight: bold;
   cursor: pointer;
+  font-size: 16px;
   overflow: hidden;
   display: flex;
   align-items: center;
