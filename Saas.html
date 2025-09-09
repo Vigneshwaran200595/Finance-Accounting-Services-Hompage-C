@@ -9,7 +9,7 @@
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 </head>
 <body>
- <nav class="navbar">
+<nav class="navbar">
   <div class="nav-left-overlay"></div>
 
   <div class="navbar-content">
@@ -17,7 +17,7 @@
       <img src="Images/logo.png" alt="Logo" class="logo" />
     </div>
 
-    <button class="menu-toggle" id="menu-toggle">
+     <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
       <span></span>
       <span></span>
       <span></span>
@@ -34,21 +34,26 @@
       <li><a href="features.html">Features</a></li>
       <li><a href="pricing.html">Pricing</a></li>
       <li><a href="why.html">Why Choose Us</a></li>
+      <li><a href="careers.html">Careers</a></li>
       <li><a href="contactsaas.html">Contact</a></li>
+
+      <li>
+        <button class="consulting-btn" onclick="location.href='login.html'">
+          <div class="consulting-text">Consulting Now</div>
+          <span class="dot"></span>
+        </button>
+      </li>
     </ul>
 
-    <div class="dark-mode-toggle" title="Toggle Dark Mode">
-      <i class="fas fa-moon"></i>
-    </div>
-
     <div class="nav-right">
-      <button class="consulting-btn" onclick="location.href='login.html'">
-        <div class="consulting-text">Consulting Now</div>
-        <span class="dot"></span>
-      </button>
+      <div class="dark-mode-toggle" id="darkModeToggle" title="Toggle Dark Mode">
+        <i class="fas fa-moon"></i>
+      </div>
     </div>
   </div>
 </nav>
+
+
 <header class="hero">
     <div class="slider">
       <div class="slide active"><img src="Images/bg1.jpg" alt="Slide 1"/></div>
@@ -617,22 +622,6 @@
 </script>
 
 <script>
-const menuToggle = document.getElementById("menu-toggle");
-  const navLinks = document.getElementById("nav-links");
-
-  menuToggle.addEventListener("click", () => {
-    menuToggle.classList.toggle("active");
-    navLinks.classList.toggle("active");
-  });
-
-  document.querySelectorAll(".dropdown .arrow1").forEach(arrow => {
-    arrow.addEventListener("click", (e) => {
-      e.preventDefault();
-      const parent = arrow.parentElement;
-      parent.classList.toggle("open");
-    });
-  });
-
   document.addEventListener("DOMContentLoaded", function () {
     const counters = document.querySelectorAll(".counter");
     let started = false;
@@ -675,10 +664,43 @@ const menuToggle = document.getElementById("menu-toggle");
     window.addEventListener("scroll", checkCounters);
     checkCounters();
 });
-
-
-  
 </script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const menuToggle = document.getElementById("menu-toggle");
+  const navLinks = document.getElementById("nav-links");
+  const darkModeToggle = document.getElementById("darkModeToggle");
+
+
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+
+
+  document.querySelectorAll(".dropdown .arrow1").forEach(arrow => {
+    arrow.addEventListener("click", (e) => {
+      e.preventDefault();
+      const parentDropdown = arrow.closest(".dropdown");
+      parentDropdown.classList.toggle("open");
+    });
+  });
+
+  darkModeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+
+    const icon = darkModeToggle.querySelector("i");
+    if (document.body.classList.contains("dark-mode")) {
+      icon.classList.replace("fa-moon", "fa-sun");
+    } else {
+      icon.classList.replace("fa-sun", "fa-moon");
+    }
+  });
+});
+
+</script>
+
+
   <script src="Saas.js"></script>
 </body>
 </html>

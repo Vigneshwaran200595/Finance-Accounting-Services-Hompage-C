@@ -86,45 +86,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-document.addEventListener("DOMContentLoaded", function () {
-  const toggleBtn = document.querySelector(".dark-mode-toggle");
-
-  toggleBtn.addEventListener("click", function () {
-    document.body.classList.toggle("dark-mode");
-
-    if (document.body.classList.contains("dark-mode")) {
-      localStorage.setItem("theme", "dark");
-      toggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
-    } else {
-      localStorage.setItem("theme", "light");
-      toggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
-    }
-  });
-
-  if (localStorage.getItem("theme") === "dark") {
-    document.body.classList.add("dark-mode");
-    toggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
-  }
-});
-
-const menuToggle = document.getElementById("menu-toggle");
-  const navLinks = document.getElementById("nav-links");
-
-  menuToggle.addEventListener("click", () => {
-    menuToggle.classList.toggle("active");
-    navLinks.classList.toggle("active");
-  });
-
-
-  document.querySelectorAll(".dropdown .arrow").forEach(arrow => {
-    arrow.addEventListener("click", (e) => {
-      e.preventDefault();
-      const parent = arrow.parentElement;
-      parent.classList.toggle("open");
-    });
-  });
-
-
 
 window.addEventListener("scroll", function() {
   const scrollBtn = document.getElementById("scrollTopBtn");

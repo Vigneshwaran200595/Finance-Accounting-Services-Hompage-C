@@ -254,6 +254,7 @@ body {
   justify-content: center;
   align-items: center;
   padding: 80px 0;
+  overflow: hidden;
   background: linear-gradient(
     to right,
     #00c291 40%,  
@@ -485,14 +486,17 @@ body {
 
   .about-content h2 {
     font-size: 2rem;
+    margin-left: 20px;
   }
 
   .about-content h4 {
     font-size: 20px;
+    margin-left: 20px;
   }
 
   .about-content p {
     font-size: 0.95rem;
+    margin-left: 20px;
   }
 
   .btn {

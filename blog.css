@@ -254,6 +254,7 @@ body {
 .container {
   display: flex;
   font-family: Arial, sans-serif;
+  overflow: hidden;
   gap: 30px;
   margin: auto;
   background-color: #fffbe9;
