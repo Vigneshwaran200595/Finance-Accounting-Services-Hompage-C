@@ -142,6 +142,10 @@ a {
   transition: all 0.3s ease;
 }
 
+.menu-toggle { z-index: 10002; }
+.navbar-content { z-index: 2; }
+.nav-left-overlay { z-index: 1; }
+
 .nav-left-overlay {
   z-index: 1;
 }
@@ -2166,3 +2170,4 @@ body.dark-mode .footer-bottom {
 .dark-mode-toggle i {
   font-size: 16px;
 }
+
