@@ -17,14 +17,17 @@ a {
 }
 
 
+/* ===== Navbar Base ===== */
 .navbar {
   position: fixed;
-  width: 100%;
   top: 0;
   left: 0;
+  width: 100%;
   height: 90px;
   background: white;
   z-index: 10000;
+  display: flex;
+  align-items: center;
 }
 
 .nav-left .logo {
@@ -45,12 +48,12 @@ a {
 }
 
 .navbar-content {
-  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 clamp(10px,5vw,60px);
-  height: 100%;
+  width: 100%;
+  padding: 0 clamp(10px, 5vw, 60px);
+  position: relative;
   z-index: 2;
 }
 
@@ -66,98 +69,10 @@ a {
   font-weight: bold;
   font-size: 17px;
   color: #000;
+  text-decoration: none;
 }
 .nav-links li a:hover {
   color: #ff3b3f;
-}
-
-.consulting-btn {
-  position: relative;
-  background: #101010;
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 999px;
-  font-weight: bold;
-  cursor: pointer;
-  font-size: 16px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 120px;
-  height: 50px;
-  margin-left: 20px;
-}
-
-.consulting-btn .dot {
-  position: absolute;
-  right: 15px;
-  width: 20px;
-  height: 20px;
-  background: #ff4500;
-  border-radius: 50%;
-  z-index: 1;
-  transition: all 0.4s ease;
-}
-
-.consulting-btn:hover .dot {
-  transform: scale(1.3);
-}
-
-.consulting-btn:hover .dot {
-  right: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 999px;
-}
-
-.dark-mode-toggle {
-  cursor: pointer;
-  font-size: 20px;
-  color: #000;
-  margin-left: 20px;
-  z-index: 10003;
-}
-
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 25px;
-  height: 20px;
-  margin-left: 40px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  position: relative;
-  z-index: 10005;
-}
-
-.menu-toggle span {
-  display: block;
-  height: 3px;
-  background: #000;
-  border-radius: 2px;
-  transition: all 0.3s ease;
-}
-
-.menu-toggle { z-index: 10002; }
-.navbar-content { z-index: 2; }
-.nav-left-overlay { z-index: 1; }
-
-.nav-left-overlay {
-  z-index: 1;
-}
-.navbar-content {
-  z-index: 2;
-}
-.menu-toggle {
-  z-index: 10002;
-}
-
-.dropdown {
-  position: relative;
 }
 
 .dropdown {
@@ -173,71 +88,115 @@ a {
   padding: 10px 0;
   min-width: 160px;
   border-radius: 6px;
-  z-index: 999;
   list-style: none;
+  z-index: 1000;
+}
+
+.dropdown-menu li a {
+  padding: 10px 20px;
+  color: #fff !important;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.dropdown-menu li a:hover {
+  color: #ff3b3f !important;
 }
 
 .dropdown:hover .dropdown-menu {
   display: block;
 }
 
-.dropdown-menu li {
-  width: 100%;
-}
-
-.dropdown-menu a {
-  padding: 10px 20px;
-  color: #fff !important;
-  white-space: nowrap;
-  text-decoration: none;
-}
-
-.dropdown-menu a:hover {
-  color: #ff3b3f !important;
-}
-
-
-
-
-.arrow1 {
-  font-size: 16px;
-  margin-left: 5px;
+/* ===== Menu Toggle Button ===== */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 25px;
+  background: none;
+  border: none;
   cursor: pointer;
-  user-select: none;
+  z-index: 10010;
 }
 
-.nav-right {
+.menu-toggle span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #000;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* ===== Right Side Buttons ===== */
+.consulting-btn {
+  position: relative;
+  background: #101010;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 999px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
   display: flex;
   align-items: center;
-  gap: 15px;
+  justify-content: center;
+  min-width: 120px;
+  height: 50px;
+  margin-left: 20px;
+  overflow: hidden;
 }
 
+.consulting-btn .dot {
+  position: absolute;
+  right: 15px;
+  width: 20px;
+  height: 20px;
+  background: #ff4500;
+  border-radius: 50%;
+  transition: all 0.4s ease;
+}
 
+.consulting-btn:hover .dot {
+  transform: scale(1.3);
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+}
+
+/* ===== Mobile Styles ===== */
 @media (max-width: 768px) {
   .menu-toggle {
     display: flex;
-    order: 1;
   }
 
   .nav-left {
-    order: 2;
+    order: 1;
+  }
+
+  .menu-toggle {
+    order: 0;
   }
 
   .nav-right {
-    order: 3;
+    order: 2;
   }
 
   .nav-links {
     display: none;
     flex-direction: column;
     position: absolute;
-    top: 90px;
-    left: 0;
-    width: 100%;
+    top: 67px;
+    left: -90px;
+
+    width: 90%;
     background: white;
-    padding: 20px 0;
+    padding: 10px 0;
     gap: 0;
-    z-index: 9999;
+    z-index: 10005;
   }
 
   .nav-links.active {
@@ -248,40 +207,30 @@ a {
     margin: 10px 20px;
   }
 
+  /* Dropdown in Mobile */
   .dropdown-menu {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 0;
     display: none !important;
-    flex-direction: column;
     padding: 0;
-    width: 150px;
-    margin-left: -170px;
-    margin-top: -30px;
-
   }
 
   .dropdown.open > .dropdown-menu {
     display: flex !important;
+    flex-direction: column;
   }
 
   .nav-left-overlay {
-  position: absolute;
-  top: 0;
-  left: -15%;
-  width: 80%;
-  height: 90px;
-  background: rgb(236,64,11);
-  transform: skewX(-45deg);
-  z-index: 1;
+    left: -15%;
+    width: 80%;
+    height: 90px;
+    transform: skewX(-45deg);
+  }
 }
 
-.arrow1 {
-  font-size: 18px;
-  margin-left: 5px;
-  background-color: red;
-  cursor: pointer;
-  user-select: none;
-}
-
-}
 
 .hero {
   position: relative;
@@ -2170,4 +2119,3 @@ body.dark-mode .footer-bottom {
 .dark-mode-toggle i {
   font-size: 16px;
 }
-
