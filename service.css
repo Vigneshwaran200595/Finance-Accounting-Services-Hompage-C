@@ -254,7 +254,7 @@ text-align: center;
 margin-top: 70px;
 background-color:#fffbe9;
 padding-bottom: 30px;
- overflow-x: hidden;
+ overflow: hidden;
 }
 
 .ourservices-section h5 {

@@ -1416,8 +1416,8 @@ body {
   background-color: #fffbe9;
   padding-top: 50px;
   padding-bottom: 100px;
-  overflow: hidden;
   position: relative;
+  overflow-x: hidden;
   z-index: 1;
 }
 
@@ -1438,15 +1438,14 @@ body {
       margin-bottom: 10px;
     }
 
-  .card-container {
-  position: absolute;
-  top: 80%;
-  left: 50%;
-  transform: translateX(-50%);
+
+.card-container {
   display: flex;
+  justify-content: center;
   gap: 30px;
   z-index: 3;
-  padding-bottom: 100px;
+  flex-wrap: wrap;
+  margin-top: 40px;
 }
 
 .card {
@@ -1475,7 +1474,6 @@ body {
   font-weight: bold;
   font-size: 18px;
   color: #1a1a1a;
-  cursor: pointer;
   position: relative;
 }
 
@@ -1489,23 +1487,13 @@ body {
   color: #333;
 }
 
-.card-1:hover .hover-text-1 {
+/* ✅ Expand only the hovered card's text */
+.card:hover .hover-text {
   max-height: 100px;
   opacity: 1;
   margin-top: 10px;
 }
 
-.card-2:hover .hover-text-2 {
-  max-height: 100px;
-  opacity: 1;
-  margin-top: 10px;
-}
-
-.card-3:hover .hover-text-3 {
-  max-height: 100px;
-  opacity: 1;
-  margin-top: 10px;
-}
 
 @media (max-width: 768px) {
   .card-container {
@@ -1549,7 +1537,6 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   background-color: #14b8a6;
-  border-radius: 0 0 50px 0;
   position: relative;
   z-index: 2;
   margin-top: -50px;
@@ -1560,7 +1547,6 @@ body {
   color: white;
   text-align: center;
   flex: 1 1 200px;
-  border-radius: 0 0 20px 0px;
   position: relative;
   margin-top: -20px;
   margin-bottom: 20px;
