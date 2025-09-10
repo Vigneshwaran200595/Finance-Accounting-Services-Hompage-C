@@ -17,7 +17,6 @@ a {
 }
 
 
-/* ===== Navbar Base ===== */
 .navbar {
   position: fixed;
   top: 0;
@@ -107,7 +106,7 @@ a {
   display: block;
 }
 
-/* ===== Menu Toggle Button ===== */
+
 .menu-toggle {
   display: none;
   flex-direction: column;
@@ -129,7 +128,6 @@ a {
   transition: all 0.3s ease;
 }
 
-/* ===== Right Side Buttons ===== */
 .consulting-btn {
   position: relative;
   background: #101010;
@@ -167,7 +165,6 @@ a {
   border-radius: 999px;
 }
 
-/* ===== Mobile Styles ===== */
 @media (max-width: 768px) {
   .menu-toggle {
     display: flex;
@@ -207,7 +204,6 @@ a {
     margin: 10px 20px;
   }
 
-  /* Dropdown in Mobile */
   .dropdown-menu {
     position: relative;
     top: 0;
@@ -228,6 +224,10 @@ a {
     width: 80%;
     height: 90px;
     transform: skewX(-45deg);
+  }
+
+  .arrow1 {
+    background-color: #ff3b3f;
   }
 }
 
@@ -388,11 +388,15 @@ a {
 
   .hero-content h1 {
     font-size: 24px;
+    color: #ff4500;
     line-height: 1.3;
   }
 
   .subheading {
     font-size: 12px;
+    color: #2fb980;
+    font-weight: bold;
+    margin-top: 20px;
     letter-spacing: 2px;
   }
 
@@ -1268,6 +1272,77 @@ a {
   color: #0f1b29;
   text-align: center;
 }
+
+/* ========= Responsive Media Queries ========= */
+
+/* Tablets */
+@media (max-width: 992px) {
+  .skills-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .skills-text {
+    flex: 100%;
+  }
+
+  .skills-icons {
+    grid-template-columns: repeat(2, 1fr); /* keep 2 columns */
+    gap: 25px;
+    justify-items: center;
+  }
+
+  .section-title {
+    font-size: 26px;
+  }
+  .skills-text p {
+    font-size: 15px;
+  }
+}
+
+/* Mobile */
+/* Mobile (2x2 grid + smaller circles) */
+@media (max-width: 576px) {
+  .skills-section {
+    padding: 50px 15px;
+  }
+
+  .skills-section::before {
+    width: 350px;
+    height: 350px;
+    left: -80px; /* shrink background circle */
+  }
+
+  .skills-icons {
+    grid-template-columns: repeat(2, 1fr); /* 2 per row */
+    gap: 20px;
+    justify-items: center;
+  }
+
+  .circle1 {
+    width: 80px;
+    height: 80px;
+  }
+  .circle1::after {
+    width: 55px;
+    height: 55px;
+  }
+  .circle1 i {
+    font-size: 20px;
+  }
+
+  .skill-item h4 {
+    font-size: 13px;
+    margin-right: 0;
+  }
+
+  .section-title {
+    font-size: 22px;
+  }
+}
+
+
 
 .meet-feedback {
   background: #f5f5f5;

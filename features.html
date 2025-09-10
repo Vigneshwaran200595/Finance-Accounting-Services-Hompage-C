@@ -14,10 +14,10 @@
 
   <div class="navbar-content">
     <div class="nav-left">
-      <img src="Images/logo.png" alt="Logo" class="logo2" />
+      <img src="Images/logo.png" alt="Logo" class="logo" />
     </div>
 
-    <button class="menu-toggle" id="menu-toggle">
+     <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
       <span></span>
       <span></span>
       <span></span>
@@ -36,17 +36,19 @@
       <li><a href="why.html">Why Choose Us</a></li>
       <li><a href="careers.html">Careers</a></li>
       <li><a href="contactsaas.html">Contact</a></li>
+
+      <li>
+        <button class="consulting-btn" onclick="location.href='login.html'">
+          <div class="consulting-text">Consulting Now</div>
+          <span class="dot"></span>
+        </button>
+      </li>
     </ul>
 
-    <div class="dark-mode-toggle" title="Toggle Dark Mode">
-      <i class="fas fa-moon"></i>
-    </div>
-
     <div class="nav-right">
-      <button class="consulting-btn" onclick="location.href='login.html'">
-        <div class="consulting-text">Consulting Now</div>
-        <span class="dot"></span>
-      </button>
+      <div class="dark-mode-toggle" id="darkModeToggle" title="Toggle Dark Mode">
+        <i class="fas fa-moon"></i>
+      </div>
     </div>
   </div>
 </nav>
@@ -234,44 +236,6 @@
     once: true  
   });
 
-  document.addEventListener("DOMContentLoaded", function () {
-  const toggleBtn = document.querySelector(".dark-mode-toggle");
-
-  toggleBtn.addEventListener("click", function () {
-    document.body.classList.toggle("dark-mode");
-
-    if (document.body.classList.contains("dark-mode")) {
-      localStorage.setItem("theme", "dark");
-      toggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
-    } else {
-      localStorage.setItem("theme", "light");
-      toggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
-    }
-  });
-
-  if (localStorage.getItem("theme") === "dark") {
-    document.body.classList.add("dark-mode");
-    toggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
-  }
-});
-
-const menuToggle = document.getElementById("menu-toggle");
-  const navLinks = document.getElementById("nav-links");
-
-  menuToggle.addEventListener("click", () => {
-    menuToggle.classList.toggle("active");
-    navLinks.classList.toggle("active");
-  });
-
-  document.querySelectorAll(".dropdown .arrow1").forEach(arrow => {
-    arrow.addEventListener("click", (e) => {
-      e.preventDefault();
-      const parent = arrow.parentElement;
-      parent.classList.toggle("open");
-    });
-  });
-
-
 window.addEventListener("scroll", function() {
   const scrollBtn = document.getElementById("scrollTopBtn");
   if (window.scrollY > 200) {
@@ -291,5 +255,39 @@ document.getElementById("scrollTopBtn").addEventListener("click", function() {
 
 </script>
 
+<!-- <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const menuToggle = document.getElementById("menu-toggle");
+  const navLinks = document.getElementById("nav-links");
+  const darkModeToggle = document.getElementById("darkModeToggle");
+
+
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+
+
+  document.querySelectorAll(".dropdown .arrow1").forEach(arrow => {
+    arrow.addEventListener("click", (e) => {
+      e.preventDefault();
+      const parentDropdown = arrow.closest(".dropdown");
+      parentDropdown.classList.toggle("open");
+    });
+  });
+
+  darkModeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+
+    const icon = darkModeToggle.querySelector("i");
+    if (document.body.classList.contains("dark-mode")) {
+      icon.classList.replace("fa-moon", "fa-sun");
+    } else {
+      icon.classList.replace("fa-sun", "fa-moon");
+    }
+  });
+});
+
+</script> -->
+ <script src="darkmode.js"></script>
  <script src="Saas.js"></script>
 </body>

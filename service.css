@@ -560,6 +560,7 @@ padding-bottom: 30px;
   );
   padding: 60px 40px;
   gap: 40px;
+  overflow-x: hidden;
   align-items: center;
 }
 
