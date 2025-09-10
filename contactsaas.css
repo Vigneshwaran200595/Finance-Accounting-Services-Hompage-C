@@ -30,7 +30,7 @@ a {
 .nav-left .logo {
   width: 150px;
   display: block;
-  margin-left: -15px;
+  margin-left: -25px;
 }
 
 .nav-left-overlay {
@@ -930,12 +930,4 @@ body.dark-mode .footer-bottom {
   .scroll-top i {
     font-size: 16px;
   }
-}
-
- .nav-left .logo {
-  width: 150px;
-  height: auto;
-  margin-left: -15px;
-  margin-top: -5px;
-  display: block;
 }

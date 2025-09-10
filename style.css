@@ -95,8 +95,7 @@ body {
   top: 42px;
   left: 0;
   background-color: #033232;
-  padding: 10px 0;
-  min-width: 160px;
+  min-width: 140px;
   border-radius: 6px;
   z-index: 999;
   list-style: none;
@@ -125,7 +124,7 @@ body {
 
 
 .logo img {
-  height: 40px;
+  height: 45px;
 }
 
 .menu-toggle {
