@@ -703,7 +703,7 @@ body {
   color: #333;
 }
 
-/* ✅ Expand only the hovered card's text */
+
 .card:hover .hover-text {
   max-height: 100px;
   opacity: 1;
