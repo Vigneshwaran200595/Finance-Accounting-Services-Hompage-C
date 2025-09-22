@@ -180,10 +180,11 @@
         <li><i class="fas fa-envelope"></i> stackly@thestackly.com</li>
         <li><i class="fas fa-phone-alt"></i> 123456789 </li>
       </ul>
-      <form class="newsletter-form">
-        <input type="email" placeholder="Your Email Address" required>
-        <button type="submit" onclick="location.href='404_1.html'"><i class="fas fa-paper-plane"></i></button>
-      </form>
+      <form class="newsletter-form" id="newsletterForm">
+  <input type="email" id="newsletterEmail" placeholder="Your Email Address" required>
+  <button type="submit"><i class="fas fa-paper-plane"></i></button>
+  <p id="newsletter-error" style="color:red; display:none; margin-top:10px;"></p>
+</form>
     </div>
   </div>
 
@@ -220,6 +221,24 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
+  const newsletterForm = document.getElementById("newsletterForm");
+  const newsletterEmail = document.getElementById("newsletterEmail");
+  const newsletterError = document.getElementById("newsletter-error");
+
+  newsletterForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    if (newsletterEmail.value.trim() === "") {
+      newsletterError.innerText = "⚠ Please enter your email address";
+      newsletterError.style.display = "block";
+    } else if (!newsletterEmail.checkValidity()) {
+      newsletterError.innerText = "⚠ Please enter a valid email address";
+      newsletterError.style.display = "block";
+    } else {
+      newsletterError.style.display = "none";
+      window.location.href = "404_1.html";
+    }
+  });
 </script>
 
 

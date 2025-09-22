@@ -94,29 +94,33 @@
 
 <div class="contact-form"data-aos="fade-up" data-aos-delay="600">
   <h3>Don’t Hesitate To Contact Us</h3>
-  <form>
-    <div class="form-row">
-      <div class="input-box">
-        <input type="text" placeholder="Your Full Name" required>
-        <i class="fa fa-user"></i>
-      </div>
-      <div class="input-box">
-        <input type="email" placeholder="Your Email Address" required>
-        <i class="fa fa-envelope"></i>
-      </div>
-      <div class="input-box">
-        <input type="tel" placeholder="Your Phone" required>
-        <i class="fa fa-phone"></i>
-      </div>
+  <form id="circleContactForm">
+  <div class="form-row">
+    <div class="input-box">
+      <input type="text" id="circleName" placeholder="Your Full Name" required>
+      <i class="fa fa-user"></i>
     </div>
-
-    <div class="input-box textarea-box">
-      <textarea placeholder="Write Message" rows="4" required></textarea>
-      <i class="fa fa-pencil-alt"></i>
+    <div class="input-box">
+      <input type="email" id="circleEmail" placeholder="Your Email Address" required>
+      <i class="fa fa-envelope"></i>
     </div>
+    <div class="input-box">
+      <input type="tel" id="circlePhone" placeholder="Your Phone" required>
+      <i class="fa fa-phone"></i>
+    </div>
+  </div>
 
-    <button class="circle-btn red" onclick="location.href='404.html'"><span class="dot"></span>Send Message</button>
-  </form>
+  <div class="input-box textarea-box">
+    <textarea id="circleMessage" placeholder="Write Message" rows="4" required></textarea>
+    <i class="fa fa-pencil-alt"></i>
+  </div>
+
+  <button type="submit" class="circle-btn red">
+    <span class="dot"></span>Send Message
+  </button>
+
+  <p id="circle-error" style="color:red; display:none; margin-top:10px;"></p>
+</form>
 </div>
 
   </div>
@@ -147,12 +151,13 @@
     <div class="newsletter" data-aos="fade-up" data-aos-delay="500">
       <h3>Subscribe Our Newsletters</h3>
       <div class="newsletter-form">
-        <input type="email" placeholder="Enter Your Email">
-        <button class="consulting-btn" onclick="location.href='404.html'">
-          <span class="consulting-text">Subscribe Now</span>
-          <span class="dot"></span>
-        </button>
-      </div>
+  <input type="email" id="consultingEmail" placeholder="Enter Your Email">
+  <button type="button" class="consulting-btn" id="consultingBtn">
+    <span class="consulting-text">Subscribe Now</span>
+    <span class="dot"></span>
+  </button>
+  <p id="consultingError" style="color:red; display:none; margin-top:10px;"></p>
+</div>
     </div>
   </div>
 
@@ -219,7 +224,49 @@ document.getElementById("scrollTopBtn").addEventListener("click", function() {
   });
 });
 
+  const circleForm = document.getElementById("circleContactForm");
+  const circleName = document.getElementById("circleName");
+  const circleEmail = document.getElementById("circleEmail");
+  const circlePhone = document.getElementById("circlePhone");
+  const circleMessage = document.getElementById("circleMessage");
+  const circleError = document.getElementById("circle-error");
 
+  circleForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    if (
+      circleName.value.trim() === "" ||
+      circleEmail.value.trim() === "" ||
+      circlePhone.value.trim() === "" ||
+      circleMessage.value.trim() === ""
+    ) {
+      circleError.innerText = "⚠ Please fill in all fields";
+      circleError.style.display = "block";
+    } else if (!circleEmail.checkValidity()) {
+      circleError.innerText = "⚠ Please enter a valid email address";
+      circleError.style.display = "block";
+    } else {
+      circleError.style.display = "none";
+      window.location.href = "404.html";
+    }
+  });
+
+const consultingBtn = document.getElementById("consultingBtn");
+  const consultingEmail = document.getElementById("consultingEmail");
+  const consultingError = document.getElementById("consultingError");
+
+  consultingBtn.addEventListener("click", function () {
+    if (consultingEmail.value.trim() === "") {
+      consultingError.innerText = "⚠ Please fill out field";
+      consultingError.style.display = "block";
+    } else if (!consultingEmail.checkValidity()) {
+      consultingError.innerText = "⚠ Please enter a valid email address";
+      consultingError.style.display = "block";
+    } else {
+      consultingError.style.display = "none";
+      window.location.href = "404.html";
+    }
+  });
 </script>
 
 
