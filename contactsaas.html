@@ -151,13 +151,12 @@
     <div class="newsletter" data-aos="fade-up" data-aos-delay="500">
       <h3>Subscribe Our Newsletters</h3>
       <div class="newsletter-form">
-  <input type="email" id="consultingEmail" placeholder="Enter Your Email">
-  <button type="button" class="consulting-btn" id="consultingBtn">
-    <span class="consulting-text">Subscribe Now</span>
-    <span class="dot"></span>
-  </button>
-  <p id="consultingError" style="color:red; display:none; margin-top:10px;"></p>
-</div>
+        <input type="email" placeholder="Enter Your Email">
+        <button class="consulting-btn" onclick="location.href='404.html'">
+          <span class="consulting-text">Subscribe Now</span>
+          <span class="dot"></span>
+        </button>
+      </div>
     </div>
   </div>
 
@@ -251,22 +250,6 @@ document.getElementById("scrollTopBtn").addEventListener("click", function() {
     }
   });
 
-const consultingBtn = document.getElementById("consultingBtn");
-  const consultingEmail = document.getElementById("consultingEmail");
-  const consultingError = document.getElementById("consultingError");
-
-  consultingBtn.addEventListener("click", function () {
-    if (consultingEmail.value.trim() === "") {
-      consultingError.innerText = "⚠ Please fill out field";
-      consultingError.style.display = "block";
-    } else if (!consultingEmail.checkValidity()) {
-      consultingError.innerText = "⚠ Please enter a valid email address";
-      consultingError.style.display = "block";
-    } else {
-      consultingError.style.display = "none";
-      window.location.href = "404.html";
-    }
-  });
 </script>
 
 
