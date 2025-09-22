@@ -93,27 +93,26 @@
     </div>
 
     <h2>Register</h2>
-<form action="#">
-  <div class="input-box">
-    <input type="text" required>
-    <label>Full Name</label>
-  </div>
-  <div class="input-box">
-    <input type="email" required>
-    <label>Email</label>
-  </div>
-  <div class="input-box">
-    <input type="password" required>
-    <label>Password</label>
-  </div>
-  <div class="input-box">
-    <input type="password" required>
-    <label>Confirm Password</label>
-  </div>
-  <!-- <button type="submit" class="btn">Register</button> -->
-   <button type="button" class="btn" onclick="window.location.href='404_1.html'">Register</button>
-</form>
-
+<form id="registerForm">
+        <div class="input-box">
+          <input type="text" id="fullname" required>
+          <label>Full Name</label>
+        </div>
+        <div class="input-box">
+          <input type="email" id="email" required>
+          <label>Email</label>
+        </div>
+        <div class="input-box">
+          <input type="password" id="password" required>
+          <label>Password</label>
+        </div>
+        <div class="input-box">
+          <input type="password" id="confirmPassword" required>
+          <label>Confirm Password</label>
+        </div>
+        <button type="submit" class="btn">Register</button>
+        <p id="error-msg" style="color:red; display:none; margin-top:10px;"></p>
+      </form>
   </div>
 
 </div>
@@ -124,6 +123,33 @@
 
   swapBtn.addEventListener('click', () => {
     container.classList.toggle('swap');
+  });
+
+
+  const form = document.getElementById('registerForm');
+  const fullname = document.getElementById('fullname');
+  const email = document.getElementById('email');
+  const password = document.getElementById('password');
+  const confirmPassword = document.getElementById('confirmPassword');
+  const errorMsg = document.getElementById('error-msg');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    if (fullname.value.trim() === "" || email.value.trim() === "" || password.value.trim() === "" || confirmPassword.value.trim() === "") {
+      errorMsg.innerText = "⚠ Please fill in all fields";
+      errorMsg.style.display = "block";
+      return;
+    }
+
+    if (password.value !== confirmPassword.value) {
+      errorMsg.innerText = "⚠ Passwords do not match";
+      errorMsg.style.display = "block";
+      return;
+    }
+
+    errorMsg.style.display = "none";
+    window.location.href = "404_1.html";
   });
 </script>
 
