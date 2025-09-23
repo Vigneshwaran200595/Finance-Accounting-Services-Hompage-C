@@ -82,10 +82,10 @@ a {
   display: none;
   position: absolute;
   top: 100%;
-  left: 0;
+  margin-left: -10px;
   background-color: #033232;
   padding: 10px 0;
-  min-width: 160px;
+  min-width: 120px;
   border-radius: 6px;
   list-style: none;
   z-index: 1000;
@@ -96,6 +96,7 @@ a {
   color: #fff !important;
   text-decoration: none;
   white-space: nowrap;
+  margin-left: -10px;
 }
 
 .dropdown-menu li a:hover {

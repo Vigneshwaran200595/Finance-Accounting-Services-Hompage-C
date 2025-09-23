@@ -82,7 +82,8 @@ body {
   border: 0;
   height: 1px;
   background: #fff;
-  margin: 0 40px;
+  margin: 0 60px;
+  margin-top: 12px;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -92,10 +93,10 @@ body {
 .dropdown-menu {
   display: none;
   position: absolute;
-  top: 42px;
+  top: 35px;
   left: 0;
   background-color: #033232;
-  min-width: 140px;
+  min-width: 120px;
   border-radius: 6px;
   z-index: 999;
   list-style: none;
@@ -103,6 +104,7 @@ body {
 
 .dropdown-menu li {
   width: 100%;
+  margin-left: -10px;
 }
 
 .dropdown-menu a {
@@ -260,8 +262,7 @@ body {
   bottom: -2px;
   height: 2px;
   background-color: #00ffe0;
-  width: 0;                       
-  animation: underlineWidth 2s infinite ease-in-out;
+  width: 0;
 }
 
 @keyframes underlineWidth {
@@ -489,14 +490,6 @@ body {
   .hero-left .highlight {
     position: relative;
     display: inline-block;
-  }
-
-  .hero-left .highlight::after {
-    bottom: 0;
-    height: 2px;
-    width: 100%;
-    background-color: #00ffe0;
-    animation: underlineWidthMobile 2s infinite ease-in-out;
   }
 
   @keyframes underlineWidthMobile {
