@@ -405,6 +405,7 @@ body {
   #circle-large { width: 240px; height: 240px; }
 }
 
+
 .input-box {
     position: relative;
     margin: 25px 0;
@@ -455,9 +456,11 @@ body {
     }
 }
 
+
 .error-text {
     color: red;
     font-size: 12px;
     margin-top: 5px;
     display: none;
 }
+    

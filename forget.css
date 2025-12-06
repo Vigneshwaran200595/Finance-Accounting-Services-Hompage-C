@@ -192,3 +192,9 @@ body {
   }
 }
 
+.error-text {
+    display: none;
+    color: red;
+    font-size: 13px;
+    margin-top: 5px;
+}

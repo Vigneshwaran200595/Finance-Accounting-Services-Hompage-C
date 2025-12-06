@@ -30,7 +30,7 @@ a {
 }
 
 .nav-left .logo {
-  width: 150px;
+  width: 200px;
   display: block;
   margin-left: -25px;
 }
@@ -167,69 +167,135 @@ a {
 }
 
 @media (max-width: 768px) {
-  .menu-toggle {
+
+  /* NAVBAR LAYOUT FIX */
+  .navbar-content {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 10px !important;
   }
 
+  /* LEFT → LOGO */
   .nav-left {
     order: 1;
   }
 
-  .menu-toggle {
-    order: 0;
+  .nav-left .logo {
+    margin-left: 10px !important;
+    height: 60px;
+    width: 200px;
   }
 
+  /* RIGHT → DARK MODE ICON */
   .nav-right {
     order: 2;
+    margin-left: auto;
+    margin-right: 10px;
   }
 
+  /* RIGHT CORNER → HAMBURGER MENU */
+  .menu-toggle {
+    display: flex;
+    order: 3;
+    margin-left: 10px;
+  }
+
+  /* FIX ORANGE OVERLAY */
+  .nav-left-overlay {
+    width: 75%;
+    transform: skewX(-45deg);
+  }
+
+  /* FULL-SCREEN MOBILE MENU */
   .nav-links {
     display: none;
     flex-direction: column;
-    position: absolute;
-    top: 67px;
-    left: -90px;
-
-    width: 90%;
+    position: fixed;
+    top: 88px;            /* directly below navbar */
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 88px);
     background: white;
-    padding: 10px 0;
-    gap: 0;
-    z-index: 10005;
+    padding-top: 20px;
+    margin-left: 0px;
+    text-align: center;
+    overflow-y: auto;     /* Enables scrolling to show Consulting button */
+    overflow-x: hidden;
+    z-index: 99999;
   }
 
   .nav-links.active {
     display: flex;
   }
 
+  /* NAV LINK ITEMS */
   .nav-links li {
-    margin: 10px 20px;
-  }
-
-  .dropdown-menu {
-    position: relative;
-    top: 0;
-    left: 0;
+    margin: 15px 0;
     width: 100%;
-    border-radius: 0;
+    padding-bottom: 10px;
+  }
+
+  /* DROPDOWN MENU STYLING */
+  .dropdown-menu {
     display: none !important;
-    padding: 0;
-  }
-
-  .dropdown.open > .dropdown-menu {
-    display: flex !important;
     flex-direction: column;
+    width: 100%;
+    height: 60px;
+    background: #ff3b3f;
+    padding: 5px 0 !important;
+    text-align: center;
   }
 
-  .nav-left-overlay {
-    left: -15%;
-    width: 80%;
-    height: 90px;
-    transform: skewX(-45deg);
+  .dropdown.open .dropdown-menu {
+    display: flex !important;
   }
+
+  /* Reduce dropdown item height */
+  .dropdown-menu li a {
+    padding: 6px 0 !important;
+    font-size: 14px;
+    margin-left: 20px;
+    line-height: 1.2;
+    }
 
   .arrow1 {
     background-color: #ff3b3f;
   }
+}
+
+@media (max-width: 768px) {
+
+  .consulting-btn {
+    width: 90%;                /* Full width on mobile */
+    max-width: 260px;          /* Prevents stretching too far */
+    height: 45px;              /* Slightly shorter */
+    margin: 20px auto 0 auto;  /* Center button */
+    padding: 10px 20px;
+    font-size: 14px;           /* Smaller text */
+    border-radius: 30px;
+  }
+
+  .consulting-btn .dot {
+    right: 10px;               /* Adjust dot position */
+    width: 16px;               /* Smaller dot */
+    height: 16px;
+  }
+}
+
+
+.menu-toggle span {
+  background: #000;
+}
+
+body.dark-mode .menu-toggle span {
+  background-color: #ffffff !important;
+}
+
+
+body.dark-mode .nav-links li a {
+  color: black !important;
 }
 
 
@@ -377,10 +443,6 @@ a {
     padding-left: 0;
   }
 
-  .overlay {
-    display: none;
-  }
-
   .hero-content {
     padding-left: 20px;
     padding-right: 20px;
@@ -395,7 +457,7 @@ a {
 
   .subheading {
     font-size: 12px;
-    color: #2fb980;
+    color: #19fca1;
     font-weight: bold;
     margin-top: 20px;
     letter-spacing: 2px;
@@ -411,6 +473,7 @@ a {
     width: 100%;
     max-width: 250px;
   }
+
 }
 
 
@@ -720,7 +783,7 @@ a {
 
 .video-section {
   position: relative;
-  background: url('Images/video-bg.jpg') no-repeat center center/cover;
+  background: url('Images/video-bg.webp') no-repeat center center/cover;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -1926,7 +1989,7 @@ a {
 }
 
 .footer-links-wrapper {
-  background-image: url('Images/background.jpg');
+  background-image: url('Images/background.webp');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -2190,3 +2253,4 @@ body.dark-mode .footer-bottom {
 .dark-mode-toggle i {
   font-size: 16px;
 }
+

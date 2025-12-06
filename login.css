@@ -340,7 +340,7 @@ body {
   }
 
   .login-left {
-    margin-top: 400px;
+    margin-top: 300px;
   }
 
   
@@ -391,4 +391,54 @@ body {
   #circle-small { width: 60px; height: 60px; }
   #circle-medium { width: 160px; height: 160px; }
   #circle-large { width: 240px; height: 240px; }
+}
+
+.input-box {
+    position: relative;
+    margin: 25px 0;
+    width: 100%;
+    max-width: 330px;
+}
+
+.input-box input {
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #2c4766;
+    outline: none;
+    border-radius: 40px;
+    font-size: 1em;
+    color: black;
+    padding: 0 20px;
+    transition: 0.5s;
+}
+
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    color: black;
+    font-size: 1em;
+    pointer-events: none;
+    transition: 0.3s ease;
+}
+
+.input-box input:focus ~ label,
+.input-box input:not(:placeholder-shown) ~ label {
+    top: -8px;
+    font-size: 0.8em;
+    background: #fff8e1;
+    padding: 0 6px;
+    color:black;
+}
+
+@media (max-width: 768px) {
+    .input-box {
+        width: 100%;
+    }
+    .input-box input {
+        width: 100%;
+        max-width: 100%;
+    }
 }

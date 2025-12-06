@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cash Flow | Financial Accounting Dashboard</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ---------- GLOBAL ---------- */
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background: #f4fbff;
+    overflow-x: hidden;
+}
+
+/* ---------- SIDEBAR ---------- */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: linear-gradient(180deg, #004d61, #007a8a, #00b8a9);
+    color: #fff;
+    padding: 25px 0;
+    transition: 0.3s ease;
+    z-index: 1000;
+}
+
+.sidebar .logo-box {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.sidebar .logo-box img {
+    width: 170px;
+}
+
+.sidebar ul {
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar ul li {
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s;
+}
+
+.sidebar ul li:hover {
+    background: rgba(255,255,255,0.18);
+}
+
+.sidebar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: 0.3s;
+}
+
+.sidebar ul li:hover a {
+    color: #ffe36e;
+}
+
+/* Active link */
+.sidebar ul li.active {
+    background: rgba(255,255,255,0.25);
+}
+.sidebar ul li.active a {
+    color: #ffe36e;
+    font-weight: 600;
+}
+
+/* ---------- SIDEBAR OVERLAY ---------- */
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.45);
+    z-index: 900;
+}
+
+/* ---------- MAIN CONTENT ---------- */
+.main-content {
+    margin-left: 270px;
+    padding: 25px;
+}
+
+/* HEADER */
+.header {
+    background: linear-gradient(90deg, #007a8a, #004d61);
+    padding: 25px;
+    border-radius: 15px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-left h2 {
+    font-size: 26px;
+    margin: 0;
+}
+
+/* Toggle (Hidden on Desktop) */
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.home-btn {
+    background: #00b894;
+    padding: 10px 18px;
+    border-radius: 25px;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.home-btn:hover {
+    background: #009f7a;
+}
+
+/* PROFILE */
+.profile-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.profile-box img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+/* ---------- CARDS ---------- */
+.cards {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+}
+.card {
+    flex: 1;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+.card h3 {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+.card .number {
+    font-size: 30px;
+    font-weight: 600;
+    color: #007a8a;
+}
+
+/* ---------- CHART GRID ---------- */
+.chart-grid {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+.chart-box {
+    background: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 7px 20px rgba(0,0,0,0.08);
+}
+.chart-box h3 {
+    margin-bottom: 15px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 1024px) {
+
+    .main-content {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .sidebar {
+        left: -260px;
+    }
+
+    .sidebar.open {
+        left: 0;
+    }
+
+    .sidebar-overlay.show {
+        display: block;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .header-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .cards {
+        flex-direction: column;
+    }
+
+    .chart-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .header-left h2 {
+        font-size: 20px;
+    }
+
+    .profile-box span {
+        font-size: 14px;
+    }
+
+    .profile-box img {
+        width: 38px;
+        height: 38px;
+    }
+
+    .home-btn {
+        padding: 7px 15px;
+        font-size: 14px;
+    }
+
+    .card {
+        padding: 18px;
+    }
+
+    .card .number {
+        font-size: 26px;
+    }
+
+    .chart-box {
+        padding: 18px;
+    }
+}
+
+/* CASH FLOW TABLE */
+.cash-table {
+    width: 100%;
+    margin-top: 30px;
+    background: #fff;
+    border-radius: 15px;
+    border-collapse: collapse;
+    overflow: hidden;
+    box-shadow: 0px 6px 20px rgba(0,0,0,0.1);
+}
+
+.cash-table th, .cash-table td {
+    padding: 15px;
+    font-size: 15px;
+}
+
+.cash-table thead {
+    background: #007a8a;
+    color: #fff;
+}
+
+.cash-table tr {
+    border-bottom: 1px solid #eee;
+}
+
+.cash-table tr:hover {
+    background: #f0fdfd;
+}
+
+/* CHART GRID */
+.chart-grid {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.chart-box {
+    background: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.chart-box h3 {
+    margin-bottom: 10px;
+}
+
+/* ---------- RESPONSIVE (Same as Dashboard) ---------- */
+
+@media (max-width: 1024px) {
+
+    .main-content {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .sidebar {
+        left: -260px;
+        width: 240px;
+        transition: 0.3s ease;
+    }
+
+    .sidebar.open {
+        left: 0;
+    }
+
+    .sidebar-overlay.show {
+        display: block;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .header-right {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .cards {
+        flex-direction: column;
+    }
+
+    .cash-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .chart-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .header-left h2 {
+        font-size: 20px;
+    }
+
+    .card {
+        padding: 18px;
+    }
+
+    .card .amount {
+        font-size: 24px;
+    }
+
+    .cash-table th,
+    .cash-table td {
+        font-size: 13px;
+        padding: 10px;
+    }
+
+    .chart-box {
+        padding: 18px;
+    }
+
+    .chart-box h3 {
+        font-size: 16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ---------- SIDEBAR ---------- -->
+<div class="sidebar">
+    <div class="logo-box">
+        <a href="index.html"><img src="Images/logo.webp" alt="Logo"></a>
+    </div>
+
+    <ul>
+        <li><a href="dashboard.html"><i class="fa-solid fa-gauge"></i> Dashboard</a></li>
+        <li><a href="invoices.html"><i class="fa-solid fa-file-invoice-dollar"></i> Invoices</a></li>
+        <li><a href="expenses.html"><i class="fa-solid fa-chart-area"></i> Expenses</a></li>
+        <li class="active"><a href="cashflow.html"><i class="fa-solid fa-vault"></i> Cash Flow</a></li>
+        <li><a href="clients.html"><i class="fa-solid fa-users"></i> Clients</a></li>
+    </ul>
+</div>
+
+<div class="sidebar-overlay"></div>
+
+<!-- ---------- MAIN CONTENT ---------- -->
+<div class="main-content">
+
+    <div class="header">
+        <div class="header-left">
+            <h2>Cash Flow Overview</h2>
+        </div>
+
+        <div class="header-right">
+            <div class="menu-toggle" onclick="toggleSidebar()">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+
+            <a href="index.html" class="home-btn">Home</a>
+
+            <div class="profile-box">
+                <span>Admin</span>
+                <img src="Images/u2.webp">
+            </div>
+        </div>
+    </div>
+
+    <!-- SUMMARY CARDS -->
+    <div class="cards">
+        <div class="card">
+            <h3>Total Cash In</h3>
+            <div class="amount">₹ 3,40,000</div>
+        </div>
+
+        <div class="card">
+            <h3>Total Cash Out</h3>
+            <div class="amount">₹ 1,90,000</div>
+        </div>
+
+        <div class="card">
+            <h3>Net Cash Flow</h3>
+            <div class="amount">₹ 1,50,000</div>
+        </div>
+    </div>
+
+    <!-- CASH FLOW TABLE -->
+    <table class="cash-table">
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Category</th>
+                <th>Date</th>
+                <th>Amount</th>
+                <th>Note</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>Cash In</td>
+                <td>Product Sales</td>
+                <td>10 Feb 2025</td>
+                <td>₹ 45,000</td>
+                <td>Sales collection</td>
+            </tr>
+
+            <tr>
+                <td>Cash Out</td>
+                <td>Payroll</td>
+                <td>11 Feb 2025</td>
+                <td>₹ 85,000</td>
+                <td>Salary</td>
+            </tr>
+
+            <tr>
+                <td>Cash In</td>
+                <td>Service Income</td>
+                <td>15 Feb 2025</td>
+                <td>₹ 55,000</td>
+                <td>Client project</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- CHARTS -->
+    <div class="chart-grid">
+
+        <div class="chart-box">
+            <h3>Cash Flow Trend</h3>
+            <canvas id="cashFlowChart"></canvas>
+        </div>
+
+        <div class="chart-box">
+            <h3>Cash In vs Cash Out</h3>
+            <canvas id="cashSplitChart"></canvas>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ---------- SIDEBAR TOGGLE SCRIPT ---------- -->
+<script>
+function toggleSidebar() {
+    const sidebar = document.querySelector(".sidebar");
+    const overlay = document.querySelector(".sidebar-overlay");
+
+    sidebar.classList.toggle("open");
+    overlay.classList.toggle("show");
+}
+
+document.querySelector(".sidebar-overlay").addEventListener("click", () => {
+    document.querySelector(".sidebar").classList.remove("open");
+    document.querySelector(".sidebar-overlay").classList.remove("show");
+});
+</script>
+
+<!-- ---------- CASH FLOW CHARTS ---------- -->
+<script>
+/* LINE CHART - Cash Flow Trend */
+new Chart(document.getElementById("cashFlowChart"), {
+    type: "line",
+    data: {
+        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+        datasets: [{
+            label: "Net Cash Flow",
+            data: [15000, 20000, 25000, 30000, 35000, 40000],
+            borderColor: "#00b8a9",
+            backgroundColor: "rgba(0,184,169,0.25)",
+            borderWidth: 3,
+            fill: true,
+            tension: 0.4
+        }]
+    },
+    options: { plugins:{legend:{display:false}} }
+});
+
+/* DOUGHNUT CHART - Cash In Vs Cash Out */
+new Chart(document.getElementById("cashSplitChart"), {
+    type: "doughnut",
+    data: {
+        labels: ["Cash In", "Cash Out"],
+        datasets: [{
+            data: [65, 35],
+            backgroundColor: ["#00b894", "#ff4757"]
+        }]
+    }
+});
+</script>
+
+</body>
+</html>

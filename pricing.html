@@ -14,7 +14,9 @@
 
   <div class="navbar-content">
     <div class="nav-left">
-      <img src="Images/logo.png" alt="Logo" class="logo" />
+        <a href="Saas.html">
+    <img src="Images/logo.webp" alt="Logo" class="logo" style="width:200px; height:auto;" />
+  </a>
     </div>
 
      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
@@ -38,7 +40,7 @@
       <li><a href="contactsaas.html">Contact</a></li>
 
       <li>
-        <button class="consulting-btn" onclick="location.href='login.html'">
+        <button class="consulting-btn" onclick="location.href='signin.html'">
           <div class="consulting-text">Consulting Now</div>
           <span class="dot"></span>
         </button>
@@ -77,7 +79,7 @@
     <div class="test-card1" data-aos="fade-left" data-aos-delay="200">
       <div class="test-green1">
         <div class="test-card-header">
-          <img src="Images1/Price1.png" alt="Personal Plan Icon" style="width: 50px; height: 40px; margin-bottom: 10px; margin-top: 10px;" />
+          <img src="Images1/Price1.webp" alt="Personal Plan Icon" style="width: 50px; height: 40px; margin-bottom: 10px; margin-top: 10px;" />
           <h3>Personal plan</h3>
           <p>A wonderful serenity has taken possession of my entire soul</p>
         </div>
@@ -120,7 +122,7 @@
     <div class="test-card1" data-aos="fade-right" data-aos-delay="300">
       <div class="test-green1">
         <div class="test-card-header">
-          <img src="Images1/Price3.png" alt="Personal Plan Icon" style="width: 50px; height: 40px; margin-bottom: 10px; margin-top: 10px;" />
+          <img src="Images1/Price3.webp" alt="Personal Plan Icon" style="width: 50px; height: 40px; margin-bottom: 10px; margin-top: 10px;" />
           <h3>Business Plan</h3>
           <p>A wonderful serenity has taken possession of my entire soul</p>
         </div>
@@ -143,7 +145,7 @@
 <footer class="footer">
   <div class="footer-top" data-aos="fade-up" data-aos-delay="400">
     <div class="footer-logo">
-      <img src="Images/logo.png" alt="Logo" class="logo1" />
+      <img src="Images/logo.webp" alt="Logo" class="logo1" />
       <p>Power of choice is untrammelled & when nothing prevents our being able</p>
       <div class="social-icons">
         <a href="404.html"><i class="fab fa-facebook-f"></i></a>
@@ -155,12 +157,52 @@
     <div class="newsletter" data-aos="fade-up" data-aos-delay="500">
       <h3>Subscribe Our Newsletters</h3>
       <div class="newsletter-form">
-        <input type="email" placeholder="Enter Your Email">
-        <button class="consulting-btn" onclick="location.href='404.html'">
-          <span class="consulting-text">Subscribe Now</span>
-          <span class="dot"></span>
-        </button>
-      </div>
+    <div class="input-wrapper">
+        <input type="email" id="emailField" placeholder="Enter Your Email">
+        <p id="emailError" class="error-msg"></p>
+    </div>
+
+    <button class="consulting-btn" onclick="validateEmail()">
+      <span class="consulting-text">Subscribe Now</span>
+      <span class="dot"></span>
+    </button>
+</div>
+
+<script>
+function validateEmail() {
+
+    let email = document.getElementById("emailField").value.trim();
+    let error = document.getElementById("emailError");
+
+    function showError(msg) {
+        error.style.display = "block";
+        error.textContent = msg;
+
+        // Hide error after 2 seconds
+        setTimeout(() => {
+            error.style.display = "none";
+        }, 2000);
+    }
+
+    // Empty field check
+    if (email === "") {
+        showError("Please fill the field");
+        return;
+    }
+
+    // Email format check
+    let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailPattern.test(email)) {
+        showError("Enter a proper email address");
+        return;
+    }
+
+    // Valid email → redirect
+    window.location.href = "404.html";
+}
+</script>
+
     </div>
   </div>
 
@@ -168,12 +210,12 @@
   <div class="footer-links">
     <div>
       <h4>Quick Links</h4>
-      <ul>
-        <li><a href="404.html">Company History</a></li>
-        <li><a href="404.html">Latest News & Blog</a></li>
-        <li><a href="404.html">Popular Services</a></li>
-        <li><a href="404.html">Business & Consulting</a></li>
-        <li><a href="404.html">Financial Planning</a></li>
+       <ul>
+        <li><a href="features.html">Features</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="why.html">Why Choose Us</a></li>
+        <li><a href="contactsaas.html">Contact Us</a></li>
       </ul>
     </div>
     <div>

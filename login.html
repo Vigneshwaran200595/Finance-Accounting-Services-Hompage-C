@@ -76,10 +76,11 @@
     <input type="email" id="email" required>
     <label>Email</label>
   </div>
-  <div class="input-box">
-    <input type="password" id="password" required>
-    <label>Password</label>
-  </div>
+<div class="input-box">
+  <input type="password" id="password" required>
+  <label>Password</label>
+  <span id="password-error" style="color:red; font-size:13px; display:none;"></span>
+</div>
   <div class="forgot-pass">
     <a href="forget.html">Forgot Password?</a>
   </div>
@@ -98,7 +99,7 @@
   </div>
   <div class="login-box login-right">
   <div class="register-logo">
-        <img src="Images1/logo.png" alt="Stackly Logo">
+        <img src="Images1/logo.webp" alt="Stackly Logo">
       </div>
       <h2>New Here?</h2>
       <p>Create your account and start managing your finances effortlessly.</p>
@@ -119,22 +120,46 @@
 </script>
 
 <script>
-  const form = document.getElementById('loginForm');
-  const email = document.getElementById('email');
-  const password = document.getElementById('password');
-  const errorMsg = document.getElementById('error-msg');
+const form = document.getElementById('loginForm');
+const email = document.getElementById('email');
+const password = document.getElementById('password');
+const passwordErr = document.getElementById('password-error');
+const errorMsg = document.getElementById('error-msg');
 
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
+// Strong password regex
+const strongPassword = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
-    if (email.value.trim() === "" || password.value.trim() === "") {
-      errorMsg.innerText = "⚠ Please fill in all fields";
-      errorMsg.style.display = "block";
-    } else {
-      errorMsg.style.display = "none";
-      window.location.href = "404_1.html";
-    }
-  });
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  // Reset errors
+  passwordErr.style.display = "none";
+  errorMsg.style.display = "none";
+
+  // Empty fields
+  if (email.value.trim() === "" || password.value.trim() === "") {
+    errorMsg.innerText = "⚠ Please fill in all fields";
+    errorMsg.style.display = "block";
+    return;
+  }
+
+  // Strong password validation
+  if (!strongPassword.test(password.value)) {
+    passwordErr.innerText =
+      "Need to add Special Character, Number";
+    passwordErr.style.display = "block";
+
+    // Auto-hide after 2 seconds
+    setTimeout(() => {
+      passwordErr.style.display = "none";
+    }, 2000);
+
+    return;
+  }
+
+  // Success → redirect
+  window.location.href = "404.html";
+});
 </script>
 
 
