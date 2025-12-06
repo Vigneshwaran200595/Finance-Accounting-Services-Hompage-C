@@ -638,6 +638,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   padding-top: 100px;
+  overflow: hidden;
   background-color: #fff8e1;
 }
 
@@ -731,6 +732,16 @@ body {
     width: 100%;
   }
 
+  .about-right {
+    width:90%;
+  }
+
+  .about-right p {
+  font-size: 12px;
+  color: #333;
+}
+
+
   .about-left img {
     width: 100%;
     height: auto;
@@ -799,6 +810,7 @@ body {
     padding: 8px 16px;
   }
 }
+
 
 
 

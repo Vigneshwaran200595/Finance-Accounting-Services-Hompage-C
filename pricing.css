@@ -163,6 +163,9 @@ a {
 }
 
 @media (max-width: 768px) {
+  .dark-mode-toggle {
+    margin-right: 20px !important;
+}
 
   /* NAVBAR LAYOUT FIX */
   .navbar-content {
@@ -200,7 +203,7 @@ a {
 
   /* FIX ORANGE OVERLAY */
   .nav-left-overlay {
-    width: 75%;
+    width: 77%;
     transform: skewX(-45deg);
   }
 
