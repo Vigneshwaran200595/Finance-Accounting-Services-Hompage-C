@@ -64,6 +64,10 @@ a {
   margin-left: 80px;
 }
 
+ .nav-right {
+    margin-right: -40px;
+  }
+
 .nav-links li a {
   font-weight: bold;
   font-size: 17px;
@@ -741,22 +745,29 @@ body.dark-mode .nav-links li a {
 }
 
 .service-card {
-  background: #fff;
+  background: #ffffff;
   padding: 30px;
   width: 280px;
   position: relative;
   border-radius: 10px;
   text-align: center;
-  transition: all 0.3s ease;
+  transition: 
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  border-bottom: 4px solid transparent;
+  border: 3px solid #f3c5c5;
 }
 
+
 .service-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 30px rgba(226, 6, 6, 0.792);
-  border-bottom: 4px solid red;
+  background-color: #fff1f1;
+  border-color: #e20606;
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(226, 6, 6, 0.25);
 }
+
 
 .service-icon {
   font-size: 40px;

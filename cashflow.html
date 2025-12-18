@@ -3,273 +3,353 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cash Flow | Financial Accounting Dashboard</title>
+<title>Accounting & Finance Dashboard</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* ---------- GLOBAL ---------- */
+/* ================= GLOBAL ================= */
+* { box-sizing: border-box; }
+
 body {
-    margin: 0;
-    font-family: "Poppins", sans-serif;
-    background: #f4fbff;
-    overflow-x: hidden;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(180deg,#fffdf2,#f4fbff);
+  overflow-x: hidden;
 }
 
-/* ---------- SIDEBAR ---------- */
+/* ================= SIDEBAR ================= */
 .sidebar {
-    width: 250px;
-    height: 100vh;
-    position: fixed;
-    left: 0;
-    top: 0;
-    background: linear-gradient(180deg, #004d61, #007a8a, #00b8a9);
-    color: #fff;
-    padding: 25px 0;
-    transition: 0.3s ease;
-    z-index: 1000;
+  width: 260px;
+  height: 100vh;
+  position: fixed;
+  top: 0; left: 0;
+  background: linear-gradient(180deg,#004d61,#007a8a,#00b894);
+  padding: 25px 0;
+  color: #fff;
+  z-index: 1000;
+  transition: 0.3s;
 }
 
 .sidebar .logo-box {
-    text-align: center;
-    margin-bottom: 40px;
+  padding-left: 24px;
+  margin-bottom: 35px;
 }
 
 .sidebar .logo-box img {
-    width: 170px;
+  width: 180px;
 }
 
-.sidebar ul {
-    padding: 0;
-    list-style: none;
+.sidebar ul { list-style: none; padding: 0; }
+
+.sidebar li {
+  padding: 14px 26px;
 }
 
-.sidebar ul li {
-    padding: 15px 25px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: 0.3s;
+.sidebar li a {
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  gap: 12px;
+  align-items: center;
 }
 
-.sidebar ul li:hover {
-    background: rgba(255,255,255,0.18);
+.sidebar li.active,
+.sidebar li:hover {
+  background: rgba(255,255,255,0.18);
 }
 
-.sidebar ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 16px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    transition: 0.3s;
-}
-
-.sidebar ul li:hover a {
-    color: #ffe36e;
-}
-
-/* Active link */
-.sidebar ul li.active {
-    background: rgba(255,255,255,0.25);
-}
-.sidebar ul li.active a {
-    color: #ffe36e;
-    font-weight: 600;
-}
-
-/* ---------- SIDEBAR OVERLAY ---------- */
+/* ================= OVERLAY ================= */
 .sidebar-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.45);
-    z-index: 900;
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 900;
 }
 
-/* ---------- MAIN CONTENT ---------- */
+/* ================= MAIN ================= */
 .main-content {
-    margin-left: 270px;
-    padding: 25px;
+  margin-left: 280px;
+  padding: 28px;
+  transition: 0.3s;
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
 .header {
-    background: linear-gradient(90deg, #007a8a, #004d61);
-    padding: 25px;
-    border-radius: 15px;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  background: linear-gradient(135deg,#005f6a,#007f8a);
+  padding: 22px 26px;
+  border-radius: 22px;
+  color: #fff;
 }
 
-.header-left h2 {
-    font-size: 26px;
-    margin: 0;
+/* Top row */
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* Toggle (Hidden on Desktop) */
+/* Desktop logo hidden */
+.header-logo {
+  display: none;
+}
+
+/* Toggle */
 .menu-toggle {
-    display: none;
-    font-size: 28px;
-    cursor: pointer;
-    color: #fff;
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
 }
 
-.header-right {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+/* Title + actions */
+.header-bottom {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-bottom h2 {
+  margin: 0;
+  font-size: 28px;
+}
+
+/* Right actions */
+.header-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
 }
 
 .home-btn {
-    background: #00b894;
-    padding: 10px 18px;
-    border-radius: 25px;
-    color: white;
-    text-decoration: none;
-    transition: 0.3s;
-}
-.home-btn:hover {
-    background: #009f7a;
+  background: #00d2a8;
+  padding: 8px 20px;
+  border-radius: 30px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
 }
 
-/* PROFILE */
 .profile-box {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
+
 .profile-box img {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
 }
 
-/* ---------- CARDS ---------- */
+/* ================= METRICS ================= */
 .cards {
-    margin-top: 30px;
-    display: flex;
-    gap: 20px;
+  margin-top: 35px;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 22px;
 }
+
 .card {
-    flex: 1;
-    padding: 25px;
-    background: #ffffff;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  background: #fff;
+  padding: 28px;
+  border-radius: 20px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.08);
+  position: relative;
 }
+
+
 .card h3 {
-    margin-bottom: 10px;
-    font-size: 16px;
+  font-size: 14px;
+  color: #666;
 }
+
 .card .number {
-    font-size: 30px;
-    font-weight: 600;
-    color: #007a8a;
+  margin-top: 14px;
+  font-size: 32px;
+  font-weight: 700;
+  color: #004d61;
 }
 
-/* ---------- CHART GRID ---------- */
+/* ================= CHARTS ================= */
 .chart-grid {
-    margin-top: 30px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 30px;
 }
+
 .chart-box {
-    background: #fff;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 7px 20px rgba(0,0,0,0.08);
+  background: #fff;
+  padding: 25px;
+  border-radius: 22px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+  height: 420px;
 }
+
+.chart-box canvas {
+  width: 100%!important;
+  height: 320px!important;
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:1100px){
+  .cards { grid-template-columns: repeat(2,1fr); }
+  .chart-grid { grid-template-columns: 1fr; }
+}
+
+/* ================= MOBILE HEADER FIX ================= */
+@media (max-width: 768px) {
+
+  /* Header layout */
+  .header {
+    padding: 18px 20px;
+  }
+
+  /* Dashboard title stays left */
+  .header h2 {
+    font-size: 20px;
+    flex: 1;
+  }
+
+  /* Home + Profile container */
+  .header-right {
+    gap: 12px;
+  }
+
+  /* Home button – smaller & move right */
+  .home-btn {
+    padding: 6px 14px;     /* reduced size */
+    font-size: 13px;
+    margin-left: 6px;      /* move right */
+    border-radius: 22px;
+  }
+
+  /* Profile image slightly smaller */
+  .profile-box img {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+
+
+@media(max-width:768px){
+  .menu-toggle { display: block; }
+  .sidebar { left: -270px; }
+  .sidebar.open { left: 0; }
+  .sidebar-overlay.show { display: block; }
+
+  .main-content { margin-left: 0; }
+
+  /* Mobile logo visible */
+  .header-logo {
+    display: block;
+  }
+
+  .header-logo img {
+    width: 150px;
+  }
+
+  /* Header layout */
+  .header-bottom {
+    flex-direction: row;
+    margin-top: 12px;
+  }
+
+  .header-bottom h2 {
+    font-size: 22px;
+  }
+}
+
+@media(max-width:480px){
+  .cards { grid-template-columns: 1fr; }
+  .profile-box span { display: none; }
+  .chart-box { height: auto; }
+  .chart-box canvas { height: 260px!important; }
+}
+
+/* HOME BUTTON BASE */
+.home-btn{
+  background: linear-gradient(135deg, #00b894, #00d2a8);
+  padding: 8px 16px;              /* slightly reduced */
+  border-radius: 28px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
 .chart-box h3 {
-    margin-bottom: 15px;
+  margin-bottom: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #004d61;
 }
 
-/* ---------- RESPONSIVE ---------- */
 
-@media (max-width: 1024px) {
-
-    .main-content {
-        margin-left: 0;
-        padding: 20px;
-    }
-
-    .sidebar {
-        left: -260px;
-    }
-
-    .sidebar.open {
-        left: 0;
-    }
-
-    .sidebar-overlay.show {
-        display: block;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-
-    .header {
-        flex-direction: column;
-        gap: 15px;
-        padding: 20px;
-    }
-
-    .header-right {
-        width: 100%;
-        justify-content: space-between;
-    }
-
-    .cards {
-        flex-direction: column;
-    }
-
-    .chart-grid {
-        grid-template-columns: 1fr;
-    }
+/* DESKTOP HOVER */
+.home-btn:hover{
+  background: linear-gradient(135deg, #00d2a8, #00b894);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,184,148,0.35);
 }
 
-@media (max-width: 480px) {
+/* MOBILE TOUCH FEEDBACK */
+.home-btn:active{
+  transform: scale(0.96);
+  box-shadow: 0 4px 12px rgba(0,184,148,0.4);
+}
 
-    .header-left h2 {
-        font-size: 20px;
-    }
+/* METRIC CARD BASE */
+.card{
+  background: #fff;
+  border-radius: 20px;
+  padding: 28px;
+  position: relative;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
 
-    .profile-box span {
-        font-size: 14px;
-    }
+/* DESKTOP HOVER */
+.card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 20px 45px rgba(0,184,148,0.18);
+}
 
-    .profile-box img {
-        width: 38px;
-        height: 38px;
-    }
 
-    .home-btn {
-        padding: 7px 15px;
-        font-size: 14px;
-    }
 
-    .card {
-        padding: 18px;
-    }
+/* MOBILE TOUCH FEEDBACK */
+.card:active{
+  transform: scale(0.98);
+  box-shadow: 0 12px 25px rgba(0,184,148,0.25);
+}
 
-    .card .number {
-        font-size: 26px;
-    }
+.chart-box {
+  transition: 
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border 0.35s ease;
+  border: 2px solid transparent;
+}
 
-    .chart-box {
-        padding: 18px;
-    }
+.chart-box:hover {
+  transform: translateY(-6px);
+  border-color: #00b894;
+  box-shadow: 0 22px 45px rgba(0, 184, 148, 0.25);
+}
+
+/* Mobile tap feedback */
+.chart-box:active {
+  transform: scale(0.98);
 }
 
 /* CASH FLOW TABLE */
@@ -301,168 +381,223 @@ body {
     background: #f0fdfd;
 }
 
-/* CHART GRID */
-.chart-grid {
-    margin-top: 40px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-}
+/* ================= CASH FLOW TABLE RESPONSIVE ================= */
 
-.chart-box {
-    background: #fff;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-}
-
-.chart-box h3 {
-    margin-bottom: 10px;
-}
-
-/* ---------- RESPONSIVE (Same as Dashboard) ---------- */
-
+/* Tablet & Mobile */
 @media (max-width: 1024px) {
 
-    .main-content {
-        margin-left: 0;
-        padding: 20px;
-    }
+  .cash-table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;        /* horizontal scroll */
+    white-space: nowrap;
+    border-radius: 14px;
+  }
 
-    .sidebar {
-        left: -260px;
-        width: 240px;
-        transition: 0.3s ease;
-    }
-
-    .sidebar.open {
-        left: 0;
-    }
-
-    .sidebar-overlay.show {
-        display: block;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-
-    .header {
-        flex-direction: column;
-        gap: 15px;
-        padding: 20px;
-    }
-
-    .header-right {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .cards {
-        flex-direction: column;
-    }
-
-    .cash-table {
-        display: block;
-        overflow-x: auto;
-        white-space: nowrap;
-    }
-
-    .chart-grid {
-        grid-template-columns: 1fr;
-    }
+  .cash-table th,
+  .cash-table td {
+    padding: 14px;
+    font-size: 14px;
+  }
 }
 
+/* Small Mobile */
+@media (max-width: 600px) {
+
+  .cash-table {
+    font-size: 13px;
+  }
+
+  .cash-table th,
+  .cash-table td {
+    padding: 12px;
+    font-size: 13px;
+  }
+}
+
+/* Extra Small Mobile */
 @media (max-width: 480px) {
 
-    .header-left h2 {
-        font-size: 20px;
-    }
+  .cash-table {
+    box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+  }
 
-    .card {
-        padding: 18px;
-    }
-
-    .card .amount {
-        font-size: 24px;
-    }
-
-    .cash-table th,
-    .cash-table td {
-        font-size: 13px;
-        padding: 10px;
-    }
-
-    .chart-box {
-        padding: 18px;
-    }
-
-    .chart-box h3 {
-        font-size: 16px;
-    }
+  .cash-table th,
+  .cash-table td {
+    padding: 10px;
+    font-size: 12px;
+  }
 }
+
+
+/* ================= CASH FLOW CARD ICON ================= */
+.card-icon{
+  font-size: 36px;
+  margin-bottom: 10px;
+  opacity: 0.95;
+}
+
+/* ================= CASH FLOW CARD BASE ================= */
+.cards .card{
+  color:#fff;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  padding:28px;
+  border-radius:20px;
+  box-shadow:0 22px 50px rgba(0,0,0,0.25);
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+
+.cards .card h3{
+  margin:0;
+  font-size:15px;
+  color: white;
+  font-weight:500;
+}
+
+.cards .card .amount{
+  font-size:34px;
+  color: white;
+  font-weight:700;
+}
+
+/* ================= CASH FLOW GRADIENTS ================= */
+
+.cash-in{
+  background:linear-gradient(135deg,#00b894,#00e6b8);
+}
+
+.cash-out{
+  background:linear-gradient(135deg,#ff7675,#ff4757);
+}
+
+.cash-net{
+  background:linear-gradient(135deg,#0984e3,#74b9ff);
+}
+
+/* Hover effect */
+.cards .card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 30px 65px rgba(0,0,0,0.35);
+}
+
+.cash-balance{
+  background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+}
+
+
+/* ================= MOBILE CARD LAYOUT FIX ================= */
+@media (max-width: 768px) {
+
+  .card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px;
+  }
+
+  /* BIG ICON LEFT */
+  .card-icon {
+    font-size: 42px;          /* big icon */
+    min-width: 50px;          /* keeps icon aligned */
+    text-align: center;
+  }
+
+  /* CONTENT RIGHT */
+  .card h3 {
+    margin: 0;
+    font-size: 14px;
+  }
+
+  .card .number,
+  .card .amount {
+    margin-top: 4px;
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+}
+
+
 </style>
 </head>
 
 <body>
 
-<!-- ---------- SIDEBAR ---------- -->
-<div class="sidebar">
-    <div class="logo-box">
-        <a href="index.html"><img src="Images/logo.webp" alt="Logo"></a>
-    </div>
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar">
+  <div class="logo-box">
+    <a href="index.html" class="logo-link">
+  <img src="Images/logo.webp" alt="Logo">
+</a>
 
-    <ul>
-        <li><a href="dashboard.html"><i class="fa-solid fa-gauge"></i> Dashboard</a></li>
-        <li><a href="invoices.html"><i class="fa-solid fa-file-invoice-dollar"></i> Invoices</a></li>
-        <li><a href="expenses.html"><i class="fa-solid fa-chart-area"></i> Expenses</a></li>
-        <li class="active"><a href="cashflow.html"><i class="fa-solid fa-vault"></i> Cash Flow</a></li>
-        <li><a href="clients.html"><i class="fa-solid fa-users"></i> Clients</a></li>
-    </ul>
+  </div>
+  <ul>
+    <li><a href="dashboard.html"><i class="fa-solid fa-gauge"></i> Dashboard</a></li>
+    <li><a href="invoices.html"><i class="fa-solid fa-file-invoice-dollar"></i> Invoices</a></li>
+    <li><a href="expenses.html"><i class="fa-solid fa-chart-area"></i> Expenses</a></li>
+    <li class="active"><a href="cashflow.html"><i class="fa-solid fa-vault"></i> Cash Flow</a></li>
+    <li><a href="clients.html"><i class="fa-solid fa-users"></i> Clients</a></li>
+  </ul>
 </div>
 
-<div class="sidebar-overlay"></div>
+<div class="sidebar-overlay" id="overlay"></div>
 
-<!-- ---------- MAIN CONTENT ---------- -->
+<!-- MAIN -->
 <div class="main-content">
 
-    <div class="header">
-        <div class="header-left">
-            <h2>Cash Flow Overview</h2>
-        </div>
+  <!-- HEADER -->
+  <div class="header">
 
-        <div class="header-right">
-            <div class="menu-toggle" onclick="toggleSidebar()">
-                <i class="fa-solid fa-bars"></i>
-            </div>
-
-            <a href="index.html" class="home-btn">Home</a>
-
-            <div class="profile-box">
-                <span>Admin</span>
-                <img src="Images/u2.webp">
-            </div>
-        </div>
+    <div class="header-top">
+      <div class="header-logo">
+        <img src="Images/logo.webp">
+      </div>
+      <i class="fa-solid fa-bars menu-toggle" onclick="toggleSidebar()"></i>
     </div>
 
-    <!-- SUMMARY CARDS -->
-    <div class="cards">
-        <div class="card">
-            <h3>Total Cash In</h3>
-            <div class="amount">₹ 3,40,000</div>
+    <div class="header-bottom">
+      <h2>Cash Flow</h2>
+      <div class="header-actions">
+        <a href="index.html" class="home-btn">Home</a>
+        <div class="profile-box">
+          <span>Admin</span>
+          <img src="Images/u2.webp">
         </div>
-
-        <div class="card">
-            <h3>Total Cash Out</h3>
-            <div class="amount">₹ 1,90,000</div>
-        </div>
-
-        <div class="card">
-            <h3>Net Cash Flow</h3>
-            <div class="amount">₹ 1,50,000</div>
-        </div>
+      </div>
     </div>
+
+  </div>
+<div class="cards">
+
+  <div class="card cash-in">
+    <i class="fa-solid fa-arrow-down card-icon"></i>
+    <h3>Total Cash In</h3>
+    <div class="amount">340000</div>
+  </div>
+
+  <div class="card cash-out">
+    <i class="fa-solid fa-arrow-up card-icon"></i>
+    <h3>Total Cash Out</h3>
+    <div class="amount">190000</div>
+  </div>
+
+  <div class="card cash-net">
+    <i class="fa-solid fa-wallet card-icon"></i>
+    <h3>Net Cash Flow</h3>
+    <div class="amount">150000</div>
+  </div>
+
+  <!-- NEW CARD -->
+  <div class="card cash-balance">
+    <i class="fa-solid fa-piggy-bank card-icon"></i>
+    <h3>Closing Balance</h3>
+    <div class="amount">150000</div>
+  </div>
+
+</div>
+
 
     <!-- CASH FLOW TABLE -->
     <table class="cash-table">

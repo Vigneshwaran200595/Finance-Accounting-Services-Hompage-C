@@ -62,6 +62,11 @@ a {
   margin-left: 80px;
 }
 
+
+ .nav-right {
+    margin-right: -40px;
+  }
+
 .nav-links li a {
   font-weight: bold;
   font-size: 17px;
